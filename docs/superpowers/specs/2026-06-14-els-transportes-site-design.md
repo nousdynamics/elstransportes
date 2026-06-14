@@ -30,7 +30,7 @@ CI/CD via **GitHub** (Workers Builds). Idioma: pt-BR.
 
 ## Arquitetura de arquivos
 
-```
+```text
 /
 ├── public/                 # diretório de assets servidos
 │   ├── index.html          # a página
@@ -68,11 +68,19 @@ que necessário para headers). `wrangler.jsonc` aponta `assets.directory` para `
 
 ## Identidade visual
 
-- **Paleta:** azul profundo (confiança/corporativo) + acento âmbar/laranja (energia/estrada) + neutros (off-white, grafite).
+- **Logo:** fornecida pelo cliente em `public/img/logo.png` (134×75, baixa-res). "ELS" em
+  vermelho + "TRANSPORTES" em azul-marinho/preto sobre branco. Usar no header (~120px de largura).
+  Opção futura: recriar wordmark como SVG nítido (escala em qualquer tamanho/retina).
+- **Paleta da marca:** **vermelho + preto + branco** (cores oficiais da ELS).
+  - Vermelho primário ≈ `#E1251B` (amostrar/ajustar do logo na implementação).
+  - Preto/grafite (texto e seções escuras): `#111111` / `#1A1A1A`.
+  - Branco / off-white: `#FFFFFF` / `#F6F6F6`.
+  - Sem azul/âmbar — manter fiel à marca.
 - **Tipografia:** display geométrica forte para headings + sans legível para corpo (Google Fonts, com `preconnect` e `display=swap`).
-- **Estilo:** premium, alto contraste, anti-"AI genérico" (seguir skill frontend-design). Sem
-  templates óbvios; layout com hierarquia clara, espaçamento generoso, detalhes de marca.
-- **Acessibilidade:** contraste AA, foco visível, navegação por teclado, `alt` em imagens, landmarks ARIA.
+- **Estilo:** premium, alto contraste (vermelho sobre preto/branco), anti-"AI genérico" (seguir
+  skill frontend-design). Sem templates óbvios; hierarquia clara, espaçamento generoso, detalhes de marca.
+- **Acessibilidade:** contraste AA (atenção: vermelho como cor de texto só em fundos claros/grandes;
+  CTAs com vermelho de fundo + texto branco), foco visível, navegação por teclado, `alt` em imagens, landmarks ARIA.
 
 ## SEO (skill seo-optimizer)
 
