@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16161A"/>
+      <stop offset="1" stop-color="#0B0B0D"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="0%" r="70%">
+      <stop offset="0" stop-color="#E1251B" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E1251B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- road dashes -->
+  <g opacity="0.18">
+    <rect x="-40" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="160" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="360" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="560" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="760" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="960" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+    <rect x="1160" y="470" width="120" height="10" fill="#E1251B" transform="rotate(-25 600 475)"/>
+  </g>
+  <!-- watermark -->
+  <text x="1080" y="560" text-anchor="end" font-family="Archivo, Arial, sans-serif" font-weight="900"
+        font-size="420" fill="#ffffff" opacity="0.04" letter-spacing="-20">ELS</text>
+  <!-- logo plate -->
+  <g transform="translate(80,80)">
+    <rect width="208" height="92" rx="8" fill="#ffffff"/>
+    <text x="104" y="40" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-style="italic"
+          font-weight="900" font-size="40" letter-spacing="-2" fill="#E1251B">ELS</text>
+    <text x="104" y="70" text-anchor="middle" font-family="Archivo, Arial, sans-serif"
+          font-weight="700" font-size="17" letter-spacing="6" fill="#16161A">TRANSPORTES</text>
+  </g>
+  <!-- kicker -->
+  <text x="80" y="320" font-family="'JetBrains Mono', monospace" font-size="22" fill="#E1251B" letter-spacing="2">// TRANSPORTE RODOVIÁRIO · GRANDE SÃO PAULO</text>
+  <!-- headline -->
+  <text x="76" y="410" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="104" fill="#ffffff" letter-spacing="-4">Eficiência</text>
+  <text x="76" y="510" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="104" fill="#ffffff" letter-spacing="-4">no transporte<tspan fill="#E1251B">.</tspan></text>
+</svg>
