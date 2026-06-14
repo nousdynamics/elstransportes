@@ -79,11 +79,10 @@ apontados). Depois, no Worker → **Settings → Domains & Routes → Add Custom
 - Páginas de serviço e locais: edite `scripts/generate-seo-pages.mjs` e rode `npm run generate:seo`.
 - Cores e tipografia: variáveis no topo de `public/styles.css` (`:root`).
 - Telefone/WhatsApp: constantes no script gerador e busca por `5511964620149` em `index.html`.
-- E-mail: `contato@elstransportes.com.br` (ajuste para o e-mail real).
+- E-mail: `els@elstransportes.com.br`.
 
 ## Pendências de conteúdo (placeholders)
 
-- E-mail oficial (hoje `contato@elstransportes.com.br`).
 - CNPJ / endereço comercial completo, se quiser exibir no NAP.
 - Redes sociais (`sameAs` no JSON-LD — adicionar só quando houver URLs reais).
 - Google Business Profile (criar e alinhar NAP com o site).

@@ -14,7 +14,7 @@ const SITE = "https://elstransportes.com.br";
 const PHONE = "+5511964620149";
 const PHONE_DISPLAY = "(11) 96462-0149";
 const WPP = `https://wa.me/5511964620149?text=${encodeURIComponent("Olá! Gostaria de um orçamento de transporte.")}`;
-const EMAIL = "contato@elstransportes.com.br";
+const EMAIL = "els@elstransportes.com.br";
 
 const services = [
   {
