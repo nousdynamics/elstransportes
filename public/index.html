@@ -33,7 +33,10 @@
 
 <!-- Icons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="apple-touch-icon" href="/img/logo.svg" />
+<link rel="apple-touch-icon" href="/img/logo.png" />
+
+<!-- LCP hero image -->
+<link rel="preload" as="image" href="/img/hero/slide-411.jpg" fetchpriority="high" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +54,7 @@
   "name": "ELS Transportes",
   "description": "Transportadora rodoviária na Grande São Paulo. Cargas gerais, dedicadas e fracionadas com segurança, pontualidade e eficiência.",
   "url": "https://elstransportes.com.br/",
-  "logo": "https://elstransportes.com.br/img/logo.svg",
+  "logo": "https://elstransportes.com.br/img/logo.png",
   "image": "https://elstransportes.com.br/img/og-image.png",
   "telephone": "+5511964620149",
   "email": "els@elstransportes.com.br",
@@ -131,7 +134,7 @@
 <header class="header" id="top">
   <div class="wrap header__row">
     <a href="/" class="brand" aria-label="ELS Transportes — início">
-      <span class="brand__plate"><img src="/img/logo.svg" width="120" height="53" alt="ELS Transportes" /></span>
+      <span class="brand__plate"><img src="/img/logo.png" width="134" height="75" alt="ELS Transportes" /></span>
     </a>
     <nav class="nav" aria-label="Navegação principal">
       <a href="/sobre.html">Sobre</a>
@@ -156,9 +159,12 @@
 <main id="main">
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <span class="hero__watermark" aria-hidden="true">ELS</span>
+  <section class="hero" aria-label="Destaque">
+    <div class="hero__slides" aria-hidden="true">
+      <div class="hero__slide is-active" style="background-image:url('/img/hero/slide-411.jpg')"></div>
+      <div class="hero__slide" style="background-image:url('/img/hero/slide-34750.jpg')"></div>
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="wrap hero__inner">
       <p class="kicker kicker--light reveal">// Transporte rodoviário · Grande São Paulo</p>
       <h1 class="hero__title reveal">Transportadora de cargas<br />na Grande São Paulo<span class="accent">.</span></h1>
@@ -171,9 +177,15 @@
         </a>
         <a class="btn btn--ghost btn--lg" href="#servicos">Nossos serviços</a>
       </div>
+      <div class="hero__dots" role="group" aria-label="Trocar imagem de destaque">
+        <button type="button" class="hero__dot is-active" aria-label="Imagem 1 de 2"></button>
+        <button type="button" class="hero__dot" aria-label="Imagem 2 de 2"></button>
+      </div>
     </div>
-    <!-- Kinetic ticker -->
-    <div class="ticker" aria-hidden="true">
+  </section>
+
+  <!-- Kinetic ticker -->
+  <div class="ticker" aria-hidden="true">
       <div class="ticker__track">
         <span>Cargas gerais</span><span class="sep">◆</span>
         <span>Cargas dedicadas</span><span class="sep">◆</span>
@@ -188,8 +200,8 @@
         <span>Pontualidade</span><span class="sep">◆</span>
         <span>Grande São Paulo</span><span class="sep">◆</span>
       </div>
-    </div>
-  </section>
+  </div>
+  <!-- /ticker -->
 
   <!-- Sobre -->
   <section class="section section--light sobre" id="sobre">
@@ -371,7 +383,7 @@
 <footer class="footer">
   <div class="wrap footer__grid">
     <div class="footer__brand">
-      <span class="brand__plate"><img src="/img/logo.svg" width="110" height="49" alt="ELS Transportes" loading="lazy" /></span>
+      <span class="brand__plate"><img src="/img/logo.png" width="134" height="75" alt="ELS Transportes" loading="lazy" /></span>
       <p>Transporte rodoviário de cargas na Grande São Paulo. Segurança, pontualidade e eficiência em cada entrega.</p>
       <div class="footer__nap">
         <strong>ELS Transportes</strong><br />

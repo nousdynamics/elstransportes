@@ -22,6 +22,32 @@
     });
   }
 
+  // Hero slideshow
+  var slides = document.querySelectorAll(".hero__slide");
+  var dots = document.querySelectorAll(".hero__dot");
+  if (slides.length > 1) {
+    var current = 0;
+    var timer = null;
+    var setSlide = function (i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle("is-active", n === current); });
+      dots.forEach(function (d, n) { d.classList.toggle("is-active", n === current); });
+    };
+    var start = function () {
+      stop();
+      timer = setInterval(function () { setSlide(current + 1); }, 5500);
+    };
+    var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+    dots.forEach(function (d, n) {
+      d.addEventListener("click", function () { setSlide(n); start(); });
+    });
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) start();
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else if (!reduce) start();
+    });
+  }
+
   // Scroll reveal
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {
