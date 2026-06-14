@@ -22,29 +22,48 @@
     });
   }
 
-  // Hero slideshow
+  // Hero slideshow + top progress bars
   var slides = document.querySelectorAll(".hero__slide");
-  var dots = document.querySelectorAll(".hero__dot");
+  var bars = document.querySelectorAll(".hero__bar");
+  var fills = document.querySelectorAll(".hero__bar-fill");
   if (slides.length > 1) {
+    var DURATION = 5500;
     var current = 0;
     var timer = null;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var paint = function () {
+      fills.forEach(function (f, n) {
+        f.style.transition = "none";
+        f.style.width = n < current ? "100%" : "0%";
+      });
+      var cur = fills[current];
+      if (!cur) return;
+      if (reduce) { cur.style.width = "100%"; return; }
+      void cur.offsetWidth; // reflow so the transition restarts
+      cur.style.transition = "width " + DURATION + "ms linear";
+      cur.style.width = "100%";
+    };
     var setSlide = function (i) {
       current = (i + slides.length) % slides.length;
       slides.forEach(function (s, n) { s.classList.toggle("is-active", n === current); });
-      dots.forEach(function (d, n) { d.classList.toggle("is-active", n === current); });
-    };
-    var start = function () {
-      stop();
-      timer = setInterval(function () { setSlide(current + 1); }, 5500);
+      paint();
     };
     var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
-    dots.forEach(function (d, n) {
-      d.addEventListener("click", function () { setSlide(n); start(); });
+    var start = function () {
+      stop();
+      if (reduce) return;
+      timer = setInterval(function () { setSlide(current + 1); }, DURATION);
+    };
+
+    bars.forEach(function (b, n) {
+      b.addEventListener("click", function () { setSlide(n); start(); });
     });
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduce) start();
+
+    setSlide(0);
+    start();
     document.addEventListener("visibilitychange", function () {
-      if (document.hidden) stop(); else if (!reduce) start();
+      if (document.hidden) stop(); else start();
     });
   }
 
