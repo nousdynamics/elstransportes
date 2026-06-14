@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://elstransportes.com.br/sitemap.xml
+
+# llms.txt: https://elstransportes.com.br/llms.txt

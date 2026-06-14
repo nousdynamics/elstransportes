@@ -1,0 +1,29 @@
+# ELS Transportes
+
+> Transportadora rodoviária na Grande São Paulo. Cargas gerais, dedicadas e fracionadas.
+
+Site institucional em português (pt-BR). Canal principal de contato: WhatsApp (11) 96462-0149.
+
+## Páginas prioritárias
+
+- [Home](https://elstransportes.com.br/): visão geral da empresa e serviços
+- [Serviços](https://elstransportes.com.br/servicos/): cargas gerais, dedicadas e fracionadas
+- [Área de atuação](https://elstransportes.com.br/atendimento/): localidades atendidas na RMSP
+- [Sobre](https://elstransportes.com.br/sobre.html): história e pilares da empresa
+- [Contato](https://elstransportes.com.br/contato.html): WhatsApp, e-mail e horário
+
+## Serviços
+
+- [Cargas gerais e fretes](https://elstransportes.com.br/servicos/cargas-gerais.html)
+- [Cargas dedicadas](https://elstransportes.com.br/servicos/cargas-dedicadas.html)
+- [Cargas fracionadas](https://elstransportes.com.br/servicos/cargas-fracionadas.html)
+
+## Políticas
+
+- [Política de Privacidade](https://elstransportes.com.br/politica-de-privacidade.html)
+- [Termos de Uso](https://elstransportes.com.br/termos-de-uso.html)
+
+## Crawling
+
+- Sitemap: https://elstransportes.com.br/sitemap.xml
+- robots.txt: https://elstransportes.com.br/robots.txt
