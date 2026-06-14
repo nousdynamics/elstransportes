@@ -383,7 +383,8 @@ p { margin: 0; }
   .dif__grid { grid-template-columns: 1fr; }
   .topbar__loc { display: none; }
   .topbar__row { justify-content: center; }
-  .hero__title { letter-spacing: -0.03em; }
+  .hero__title { font-size: clamp(1.9rem, 8.5vw, 2.4rem); letter-spacing: -0.03em; }
+  .hero__title br { display: none; }
 }
 
 /* ---------- Subpages ---------- */
