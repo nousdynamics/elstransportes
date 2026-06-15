@@ -6,6 +6,22 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // WhatsApp click tracking (dataLayer / GTM)
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+    if (!a) return;
+    var loc = "other";
+    if (a.classList.contains("fab")) loc = "fab";
+    else {
+      var s = a.closest("section[id]");
+      if (s) loc = s.id;
+      else if (a.closest(".header")) loc = "header";
+      else if (a.closest(".footer")) loc = "footer";
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "whatsapp_click", click_location: loc });
+  }, true);
+
   // Mobile menu
   var burger = document.getElementById("burger");
   var mobileNav = document.getElementById("mobileNav");
@@ -127,7 +143,8 @@
         line("Observações", "observacoes")
       ].filter(Boolean);
       var msg = encodeURIComponent(parts.join("\n"));
-      if (window.dataLayer) { window.dataLayer.push({ event: "form_submit_orcamento" }); }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "generate_lead", form_name: "orcamento", method: "whatsapp" });
       window.open("https://wa.me/5511964620149?text=" + msg, "_blank");
     });
   }

@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- dataLayer: variante da landing (teste A/B de anúncios) -->
+<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({page_variant:'com_formulario'});</script>
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -169,14 +172,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Header -->
 <header class="header" id="top">
   <div class="wrap header__row">
-    <a href="/" class="brand" aria-label="ELS Transportes — início">
+    <a href="#top" class="brand" aria-label="ELS Transportes — início">
       <span class="brand__plate"><img src="/img/logo.png" width="134" height="75" alt="ELS Transportes" /></span>
     </a>
     <nav class="nav" aria-label="Navegação principal">
-      <a href="/sobre.html">Sobre</a>
-      <a href="/servicos/">Serviços</a>
-      <a href="/atendimento/">Atuação</a>
-      <a href="/contato.html">Contato</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#orcamento">Orçamento</a>
     </nav>
     <a class="btn btn--red header__cta" href="#orcamento">Pedir orçamento</a>
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
@@ -184,10 +187,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile" hidden>
-    <a href="/sobre.html">Sobre</a>
-    <a href="/servicos/">Serviços</a>
-    <a href="/atendimento/">Atuação</a>
-    <a href="/contato.html">Contato</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#atuacao">Atuação</a>
+    <a href="#orcamento">Orçamento</a>
     <a class="btn btn--red" href="#orcamento">Pedir orçamento</a>
   </nav>
 </header>
@@ -266,7 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cards">
         <article class="card reveal">
           <span class="card__num">01</span>
-          <h3 class="card__title"><a href="/servicos/cargas-gerais.html">Cargas gerais &amp; fretes</a></h3>
+          <h3 class="card__title">Cargas gerais &amp; fretes</h3>
           <p class="card__text">Transporte rodoviário de mercadorias em geral, com flexibilidade de volume e roteiro. Ideal para o dia a dia da sua operação.</p>
           <ul class="card__list">
             <li>Coletas e entregas programadas</li>
@@ -276,7 +279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </article>
         <article class="card reveal">
           <span class="card__num">02</span>
-          <h3 class="card__title"><a href="/servicos/cargas-dedicadas.html">Cargas dedicadas</a></h3>
+          <h3 class="card__title">Cargas dedicadas</h3>
           <p class="card__text">Veículo exclusivo para a sua carga, sem paradas extras. Máxima segurança e prazo para envios que não podem esperar.</p>
           <ul class="card__list">
             <li>Veículo só para você</li>
@@ -286,7 +289,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </article>
         <article class="card reveal">
           <span class="card__num">03</span>
-          <h3 class="card__title"><a href="/servicos/cargas-fracionadas.html">Cargas fracionadas</a></h3>
+          <h3 class="card__title">Cargas fracionadas</h3>
           <p class="card__text">Sua mercadoria divide o espaço com outras, reduzindo custo sem abrir mão do cuidado. Perfeito para envios menores.</p>
           <ul class="card__list">
             <li>Custo otimizado</li>
@@ -340,20 +343,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="atuacao__lead reveal">Atendemos a capital e toda a região metropolitana. Se sua carga precisa circular por São Paulo, a ELS chega lá.</p>
       </div>
       <ul class="chips reveal">
-        <li><a href="/atendimento/sao-paulo-capital.html">São Paulo — Capital</a></li>
-        <li><a href="/atendimento/zona-leste.html">Zona Leste</a></li>
-        <li><a href="/atendimento/zona-norte.html">Zona Norte</a></li>
-        <li><a href="/atendimento/zona-sul.html">Zona Sul</a></li>
-        <li><a href="/atendimento/zona-oeste.html">Zona Oeste</a></li>
-        <li><a href="/atendimento/grande-abc.html">Grande ABC</a></li>
-        <li><a href="/atendimento/guarulhos.html">Guarulhos</a></li>
-        <li><a href="/atendimento/osasco.html">Osasco</a></li>
-        <li><a href="/atendimento/barueri.html">Barueri</a></li>
-        <li><a href="/atendimento/maua.html">Mauá</a></li>
-        <li><a href="/atendimento/diadema.html">Diadema</a></li>
-        <li><a href="/atendimento/sao-bernardo-do-campo.html">São Bernardo</a></li>
-        <li><a href="/atendimento/santo-andre.html">Santo André</a></li>
-        <li><a href="/atendimento/regiao-metropolitana.html">Região Metropolitana</a></li>
+        <li>São Paulo — Capital</li>
+        <li>Zona Leste</li>
+        <li>Zona Norte</li>
+        <li>Zona Sul</li>
+        <li>Zona Oeste</li>
+        <li>Grande ABC</li>
+        <li>Guarulhos</li>
+        <li>Osasco</li>
+        <li>Barueri</li>
+        <li>Mauá</li>
+        <li>Diadema</li>
+        <li>São Bernardo</li>
+        <li>Santo André</li>
+        <li>Região Metropolitana</li>
       </ul>
     </div>
   </section>
@@ -512,10 +515,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <nav class="footer__nav" aria-label="Rodapé">
       <h4>Navegação</h4>
-      <a href="/sobre.html">Sobre</a>
-      <a href="/servicos/">Serviços</a>
-      <a href="/atendimento/">Atuação</a>
-      <a href="/contato.html">Contato</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#orcamento">Orçamento</a>
     </nav>
     <div class="footer__contact">
       <h4>Contato</h4>
