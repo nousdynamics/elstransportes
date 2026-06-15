@@ -102,6 +102,13 @@ function head({ title, description, path, jsonLdExtra = "" }) {
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W7VSRRKK');</script>
+<!-- End Google Tag Manager -->
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}" />
 <meta name="author" content="ELS Transportes" />
@@ -145,6 +152,10 @@ function shellTop(active) {
     .join("\n      ");
   return `${headPlaceholder()}
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7VSRRKK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 <header class="header" id="top">
   <div class="wrap header__row">
