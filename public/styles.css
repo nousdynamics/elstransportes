@@ -269,9 +269,16 @@ p { margin: 0; }
 .card__title a { color: inherit; transition: color .25s var(--ease); }
 .card__title a:hover { color: var(--red); }
 .card__text { color: var(--text-on-dark-soft); margin-bottom: 1.4rem; }
-.card__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
-.card__list li { position: relative; padding-left: 1.4rem; font-size: .95rem; color: var(--text-on-dark); }
-.card__list li::before { content: "→"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+.card__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.card__list li {
+  font-family: var(--font-display); font-weight: 600; font-size: .82rem;
+  color: var(--text-on-dark); line-height: 1.1;
+  padding: .45rem .9rem; border: 1px solid var(--line-dark); border-radius: 100px;
+  background: rgba(255,255,255,.04);
+  transition: border-color .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
+}
+.card:hover .card__list li { border-color: rgba(225,37,27,.45); }
+.card__list li:hover { border-color: var(--red); color: #fff; background: rgba(225,37,27,.12); }
 
 /* ---------- Diferenciais ---------- */
 .dif__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
