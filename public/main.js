@@ -117,7 +117,8 @@
     }
   }
 
-  // Orçamento form -> WhatsApp prefilled message
+  // Orçamento form -> webhook (Make) + WhatsApp via /obrigado
+  var WEBHOOK = "https://hook.us2.make.com/2mv7ypjz47r8rrg8sl701fz7pkqj9j2x";
   var orcForm = document.getElementById("orcamento-form");
   if (orcForm) {
     orcForm.addEventListener("submit", function (e) {
@@ -125,27 +126,73 @@
       if (typeof orcForm.reportValidity === "function" && !orcForm.reportValidity()) return;
       var data = new FormData(orcForm);
       var get = function (k) { return (data.get(k) || "").toString().trim(); };
-      var line = function (label, k) { var v = get(k); return v ? "*" + label + ":* " + v : ""; };
+      var payload = {
+        nome: get("nome"), telefone: get("telefone"), email: get("email"),
+        servico: get("servico"), origem: get("origem"), destino: get("destino"),
+        mercadoria: get("mercadoria"), peso: get("peso"), volume: get("volume"),
+        prazo: get("prazo"), frequencia: get("frequencia"), observacoes: get("observacoes"),
+        page_variant: "com_formulario", origem_url: location.href,
+        enviado_em: new Date().toISOString()
+      };
+      // 1) Webhook (Make) — fire-and-forget, sobrevive à navegação.
+      // form-urlencoded = content-type "safelisted" -> sem preflight CORS; Make parseia em campos.
+      try {
+        var body = new URLSearchParams(payload);
+        var sent = false;
+        if (navigator.sendBeacon) {
+          sent = navigator.sendBeacon(WEBHOOK, body);
+        }
+        if (!sent) {
+          fetch(WEBHOOK, { method: "POST", body: body, mode: "no-cors", keepalive: true }).catch(function () {});
+        }
+      } catch (err) {}
+      // 2) Mensagem WhatsApp pré-preenchida
+      var line = function (label, v) { return v ? "*" + label + ":* " + v : ""; };
       var parts = [
         "*Novo orçamento — ELS Transportes*",
         "",
-        line("Nome", "nome"),
-        line("Telefone", "telefone"),
-        line("E-mail", "email"),
-        line("Serviço", "servico"),
-        line("Origem", "origem"),
-        line("Destino", "destino"),
-        line("Mercadoria", "mercadoria"),
-        line("Peso", "peso"),
-        line("Volume", "volume"),
-        line("Prazo", "prazo"),
-        line("Frequência", "frequencia"),
-        line("Observações", "observacoes")
+        line("Nome", payload.nome),
+        line("Telefone", payload.telefone),
+        line("E-mail", payload.email),
+        line("Serviço", payload.servico),
+        line("Origem", payload.origem),
+        line("Destino", payload.destino),
+        line("Mercadoria", payload.mercadoria),
+        line("Peso", payload.peso),
+        line("Volume", payload.volume),
+        line("Prazo", payload.prazo),
+        line("Frequência", payload.frequencia),
+        line("Observações", payload.observacoes)
       ].filter(Boolean);
-      var msg = encodeURIComponent(parts.join("\n"));
+      var waUrl = "https://wa.me/5511964620149?text=" + encodeURIComponent(parts.join("\n"));
+      // 3) Analytics
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: "generate_lead", form_name: "orcamento", method: "whatsapp" });
-      window.open("https://wa.me/5511964620149?text=" + msg, "_blank");
+      // 4) Página de obrigado (faz a contagem de 5s -> WhatsApp)
+      try { sessionStorage.setItem("els_wa_url", waUrl); } catch (e2) {}
+      window.location.href = "/obrigado/";
     });
+  }
+
+  // Página de obrigado: contador de 5s -> WhatsApp
+  var thanks = document.getElementById("obrigado");
+  if (thanks) {
+    var waUrl2;
+    try { waUrl2 = sessionStorage.getItem("els_wa_url"); } catch (e3) {}
+    if (!waUrl2) {
+      waUrl2 = "https://wa.me/5511964620149?text=" + encodeURIComponent("Olá! Acabei de solicitar um orçamento pelo site.");
+    }
+    var goBtn = document.getElementById("obrigado-go");
+    if (goBtn) goBtn.setAttribute("href", waUrl2);
+    var countEl = document.getElementById("obrigado-count");
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "lead_obrigado" });
+    var n = 5;
+    if (countEl) countEl.textContent = n;
+    var t = setInterval(function () {
+      n--;
+      if (countEl) countEl.textContent = n < 0 ? 0 : n;
+      if (n <= 0) { clearInterval(t); window.location.href = waUrl2; }
+    }, 1000);
   }
 })();
