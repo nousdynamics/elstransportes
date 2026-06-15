@@ -82,4 +82,22 @@
   } else {
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
+
+  // Rotating word (Sobre heading)
+  var rotator = document.querySelector(".word-rotator");
+  if (rotator && rotator.dataset.rotate) {
+    var words = rotator.dataset.rotate.split(",");
+    var reduceR = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (words.length > 1 && !reduceR) {
+      var wi = 0;
+      setInterval(function () {
+        rotator.classList.add("is-out");
+        setTimeout(function () {
+          wi = (wi + 1) % words.length;
+          rotator.textContent = words[wi];
+          rotator.classList.remove("is-out");
+        }, 300);
+      }, 2400);
+    }
+  }
 })();

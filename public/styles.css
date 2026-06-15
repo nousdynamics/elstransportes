@@ -77,6 +77,11 @@ p { margin: 0; }
   position: relative;
   white-space: nowrap;
 }
+.word-rotator {
+  display: inline-block; will-change: opacity, transform;
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.word-rotator.is-out { opacity: 0; transform: translateY(-0.35em); }
 
 .h2 {
   font-size: clamp(2rem, 5.5vw, 3.6rem);
