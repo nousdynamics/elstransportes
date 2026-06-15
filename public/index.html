@@ -32,12 +32,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://elstransportes.com.br/img/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ELS Transportes — Transporte de Cargas na Grande São Paulo" />
 <meta name="twitter:description" content="Transportadora rodoviária focada em eficiência, segurança e pontualidade. Orçamento pelo WhatsApp." />
 <meta name="twitter:image" content="https://elstransportes.com.br/img/og-image.png" />
+<meta name="twitter:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
 
 <!-- Icons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,8 +60,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "additionalType": "https://schema.org/TruckingService",
+  "@id": "https://elstransportes.com.br/#business",
   "name": "ELS Transportes",
+  "alternateName": "ELS Transportes Transportadora",
+  "slogan": "Eficiência no transporte",
   "description": "Transportadora rodoviária na Grande São Paulo. Cargas gerais, dedicadas e fracionadas com segurança, pontualidade e eficiência.",
   "url": "https://elstransportes.com.br/",
   "logo": "https://elstransportes.com.br/img/logo.png",
@@ -67,10 +71,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "telephone": "+5511964620149",
   "email": "els@elstransportes.com.br",
   "priceRange": "$$",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Grande São Paulo"
-  },
+  "knowsAbout": ["Transporte rodoviário de cargas", "Fretes", "Carga dedicada", "Carga fracionada", "Logística"],
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Grande São Paulo" },
+    { "@type": "City", "name": "São Paulo" },
+    { "@type": "City", "name": "Guarulhos" },
+    { "@type": "City", "name": "Osasco" },
+    { "@type": "City", "name": "Barueri" },
+    { "@type": "City", "name": "São Bernardo do Campo" },
+    { "@type": "City", "name": "Santo André" },
+    { "@type": "City", "name": "Diadema" },
+    { "@type": "City", "name": "Mauá" }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "São Paulo",
@@ -89,7 +101,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "opens": "08:00",
     "closes": "18:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços de transporte de cargas",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cargas gerais e fretes", "url": "https://elstransportes.com.br/servicos/cargas-gerais.html" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cargas dedicadas", "url": "https://elstransportes.com.br/servicos/cargas-dedicadas.html" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cargas fracionadas", "url": "https://elstransportes.com.br/servicos/cargas-fracionadas.html" } }
+    ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://elstransportes.com.br/#website",
+  "url": "https://elstransportes.com.br/",
+  "name": "ELS Transportes",
+  "inLanguage": "pt-BR",
+  "publisher": { "@id": "https://elstransportes.com.br/#business" }
 }
 </script>
 <script type="application/ld+json">

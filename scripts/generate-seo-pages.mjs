@@ -113,6 +113,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="${esc(description)}" />
 <meta name="author" content="ELS Transportes" />
 <meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#E1251B" />
+<meta name="geo.region" content="BR-SP" />
+<meta name="geo.placename" content="São Paulo" />
 <link rel="canonical" href="${url}" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="pt_BR" />
@@ -123,10 +126,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="${SITE}/img/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${esc(title)}" />
 <meta name="twitter:description" content="${esc(description)}" />
 <meta name="twitter:image" content="${SITE}/img/og-image.png" />
+<meta name="twitter:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -258,16 +263,37 @@ function serviceJson(s, path) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: s.title,
+    serviceType: "Transporte rodoviário de cargas",
     description: s.lead,
     url: `${SITE}${path}`,
     provider: {
       "@type": "LocalBusiness",
+      "@id": `${SITE}/#business`,
       name: "ELS Transportes",
       telephone: PHONE,
       url: SITE,
       areaServed: { "@type": "AdministrativeArea", name: "Grande São Paulo" },
     },
     areaServed: { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+  })}</script>`;
+}
+
+function localServiceJson(c, path) {
+  return `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Transporte de cargas em ${c.name}`,
+    serviceType: "Transporte rodoviário de cargas",
+    description: `Frete e transporte de cargas em ${c.name}: cargas gerais, dedicadas e fracionadas na Grande São Paulo.`,
+    url: `${SITE}${path}`,
+    areaServed: { "@type": "City", name: c.name },
+    provider: {
+      "@type": "LocalBusiness",
+      "@id": `${SITE}/#business`,
+      name: "ELS Transportes",
+      telephone: PHONE,
+      url: SITE,
+    },
   })}</script>`;
 }
 
@@ -449,7 +475,7 @@ ${faqHtml(faq)}`;
           { name: "Início", path: "/" },
           { name: "Atuação", path: "/atendimento/" },
           { name: c.name, path },
-        ]) + faqJson(faq),
+        ]) + localServiceJson(c, path) + faqJson(faq),
     })
   );
 }
