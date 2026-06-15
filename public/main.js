@@ -100,4 +100,35 @@
       }, 2400);
     }
   }
+
+  // Orçamento form -> WhatsApp prefilled message
+  var orcForm = document.getElementById("orcamento-form");
+  if (orcForm) {
+    orcForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (typeof orcForm.reportValidity === "function" && !orcForm.reportValidity()) return;
+      var data = new FormData(orcForm);
+      var get = function (k) { return (data.get(k) || "").toString().trim(); };
+      var line = function (label, k) { var v = get(k); return v ? "*" + label + ":* " + v : ""; };
+      var parts = [
+        "*Novo orçamento — ELS Transportes*",
+        "",
+        line("Nome", "nome"),
+        line("Telefone", "telefone"),
+        line("E-mail", "email"),
+        line("Serviço", "servico"),
+        line("Origem", "origem"),
+        line("Destino", "destino"),
+        line("Mercadoria", "mercadoria"),
+        line("Peso", "peso"),
+        line("Volume", "volume"),
+        line("Prazo", "prazo"),
+        line("Frequência", "frequencia"),
+        line("Observações", "observacoes")
+      ].filter(Boolean);
+      var msg = encodeURIComponent(parts.join("\n"));
+      if (window.dataLayer) { window.dataLayer.push({ event: "form_submit_orcamento" }); }
+      window.open("https://wa.me/5511964620149?text=" + msg, "_blank");
+    });
+  }
 })();
