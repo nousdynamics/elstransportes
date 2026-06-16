@@ -190,7 +190,6 @@ ${jsonLdExtra}
 
 function shellTop(active) {
   const nav = [
-    ["home", "/", "Início"],
     ["sobre", "/sobre.html", "Sobre"],
     ["servicos", "/servicos/", "Serviços"],
     ["atendimento", "/atendimento/", "Atuação"],
@@ -344,31 +343,60 @@ function localServiceJson(c, path) {
   })}</script>`;
 }
 
-function renderPage({ active, headMeta, hero, body, jsonLd = "" }) {
+function ctaSection({ secondaryHref = "/contato.html", secondaryLabel = "Outras formas de contato" } = {}) {
+  return `<section class="section contato">
+  <div class="wrap contato__inner">
+    <p class="kicker kicker--light reveal">// Orçamento</p>
+    <h2 class="contato__title reveal">Peça seu frete agora</h2>
+    <p class="contato__lead reveal">Atendimento direto pelo WhatsApp. Informe origem, destino e quantidade de caixas ou pallets.</p>
+    <div class="contato__actions reveal">
+      <a class="btn btn--red btn--lg" href="${WPP}" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.633-.957zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp ${PHONE_DISPLAY}
+      </a>
+      <a class="btn btn--ghost btn--lg" href="${secondaryHref}">${esc(secondaryLabel)}</a>
+    </div>
+    <p class="contato__hours reveal">Seg a Sex · 08h às 18h</p>
+  </div>
+</section>`;
+}
+
+function pageAside(title, text) {
+  return `<aside class="page-content__aside reveal">
+  <div class="page-aside-card">
+    <p class="kicker">// Orçamento</p>
+    <h2>${esc(title)}</h2>
+    <p>${esc(text)}</p>
+    <a class="btn btn--red" href="${WPP}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
+  </div>
+</aside>`;
+}
+
+function breadcrumbHtml(items) {
+  const parts = items
+    .map((item, i) => {
+      const isLast = i === items.length - 1;
+      if (isLast) return `<span>${esc(item.name)}</span>`;
+      return `<a href="${item.path}">${esc(item.name)}</a><span aria-hidden="true">/</span>`;
+    })
+    .join("\n  ");
+  return `<nav class="breadcrumb" aria-label="Trilha de navegação">\n  ${parts}\n</nav>`;
+}
+
+function renderPage({ active, headMeta, hero, sections = "", jsonLd = "", showCta = true, ctaOptions = {} }) {
   const top = shellTop(active).replace("HEAD", head({ ...headMeta, jsonLdExtra: jsonLd }));
+  const cta = showCta ? ctaSection(ctaOptions) : "";
   return `${top}
 <section class="page-hero">
   <div class="wrap page-hero__inner">${hero}</div>
 </section>
-<section class="section section--light">
-  <div class="wrap">${body}</div>
-</section>
-<section class="section contato">
-  <div class="wrap contato__inner">
-    <p class="kicker kicker--light">// Orçamento</p>
-    <h2 class="contato__title">Peça seu frete agora</h2>
-    <p class="contato__lead">Atendimento direto pelo WhatsApp. Informe origem, destino e quantidade de caixas ou pallets.</p>
-    <div class="contato__actions">
-      <a class="btn btn--red btn--lg" href="${WPP}" target="_blank" rel="noopener noreferrer">WhatsApp ${PHONE_DISPLAY}</a>
-      <a class="btn btn--ghost btn--lg" href="/contato.html">Outras formas de contato</a>
-    </div>
-  </div>
-</section>
+${sections}
+${cta}
 ${shellBottom()}`;
 }
 
 function faqHtml(faq) {
-  return `<div class="faq__list" style="margin-top:2rem">
+  return `<div class="faq__list reveal">
 ${faq
   .map(
     (f) => `<details class="faq__item">
@@ -390,32 +418,35 @@ async function writePage(relPath, html) {
 // Service pages
 for (const s of services) {
   const path = `/servicos/${s.slug}.html`;
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: "Serviços", path: "/servicos/" },
+    { name: s.title, path },
+  ];
   const hero = `
-<nav class="breadcrumb" aria-label="Trilha de navegação">
-  <a href="/">Início</a><span aria-hidden="true">/</span>
-  <a href="/servicos/">Serviços</a><span aria-hidden="true">/</span>
-  <span>${esc(s.title)}</span>
-</nav>
+${breadcrumbHtml(crumbs)}
 <p class="kicker kicker--light">// Serviço</p>
 <h1 class="h1">${esc(s.h1)}</h1>
 <p class="page-hero__lead">${esc(s.lead)}</p>
 <div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes oferece ${esc(s.keyword)} com atendimento direto, operação enxuta e foco em cuidado, pontualidade e segurança no transporte de revestimentos.</div>`;
 
-  const body = `<div class="prose">
+  const sections = `<section class="section section--light">
+  <div class="wrap page-content">
+    <div class="page-content__main">
+      <div class="prose reveal">
 ${s.intro.map((p) => `<p>${esc(p)}</p>`).join("\n")}
 <h2>Quando usar ${esc(s.title.toLowerCase())}</h2>
 <ul>${s.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
 <p>Atendemos São Paulo, Grande São Paulo, Litoral, Vale do Paraíba, Campinas, Belo Horizonte e cargas fechadas para todo o Brasil. Informe origem, destino e características da carga para receber orçamento.</p>
 <h2>Perguntas frequentes</h2>
-</div>
+      </div>
 ${faqHtml(s.faq)}
-<p style="margin-top:2rem"><a class="btn btn--red" href="${WPP}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a></p>`;
+    </div>
+    ${pageAside("Peça seu frete", "Informe origem, destino e volume para receber orçamento pelo WhatsApp.")}
+  </div>
+</section>`;
 
-  const jsonLd = breadcrumbJson([
-    { name: "Início", path: "/" },
-    { name: "Serviços", path: "/servicos/" },
-    { name: s.title, path },
-  ]) + serviceJson(s, path) + faqJson(s.faq);
+  const jsonLd = breadcrumbJson(crumbs) + serviceJson(s, path) + faqJson(s.faq);
 
   await writePage(
     `servicos/${s.slug}.html`,
@@ -427,7 +458,7 @@ ${faqHtml(s.faq)}
         path,
       },
       hero,
-      body,
+      sections,
       jsonLd,
     })
   );
@@ -436,10 +467,14 @@ ${faqHtml(s.faq)}
 // Services hub
 const servicesHubCards = services
   .map(
-    (s) => `<a class="link-card" href="/servicos/${s.slug}.html">
-  <strong>${esc(s.title)}</strong>
-  <span>${esc(s.lead)}</span>
-</a>`
+    (s, i) => `<article class="card reveal">
+  <span class="card__num">${String(i + 1).padStart(2, "0")}</span>
+  <h3 class="card__title"><a href="/servicos/${s.slug}.html">${esc(s.title)}</a></h3>
+  <p class="card__text">${esc(s.lead)}</p>
+  <ul class="card__list">
+${s.bullets.slice(0, 3).map((b) => `    <li>${esc(b)}</li>`).join("\n")}
+  </ul>
+</article>`
   )
   .join("\n");
 
@@ -453,10 +488,22 @@ await writePage(
       path: "/servicos/",
     },
     hero: `
+${breadcrumbHtml([
+  { name: "Início", path: "/" },
+  { name: "Serviços", path: "/servicos/" },
+])}
 <p class="kicker kicker--light">// Serviços</p>
 <h1 class="h1">Entrega de pisos e porcelanatos</h1>
 <p class="page-hero__lead">Atendemos construtoras, lojas e cliente final — com cuidado no manuseio de revestimentos e atendimento direto pelo WhatsApp.</p>`,
-    body: `<div class="link-grid">${servicesHubCards}</div>`,
+    sections: `<section class="section section--dark servicos">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker kicker--light">// Para quem entregamos</p>
+      <h2 class="h2 h2--light">Serviços<span class="accent">.</span></h2>
+    </div>
+    <div class="cards">${servicesHubCards}</div>
+  </div>
+</section>`,
     jsonLd: breadcrumbJson([
       { name: "Início", path: "/" },
       { name: "Serviços", path: "/servicos/" },
@@ -467,6 +514,11 @@ await writePage(
 // Local pages
 for (const c of cities) {
   const path = `/atendimento/${c.slug}.html`;
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: "Atuação", path: "/atendimento/" },
+    { name: c.name, path },
+  ];
   const faq = [
     {
       q: `A ELS Transportes atende ${c.name}?`,
@@ -483,17 +535,16 @@ for (const c of cities) {
   ];
 
   const hero = `
-<nav class="breadcrumb" aria-label="Trilha de navegação">
-  <a href="/">Início</a><span aria-hidden="true">/</span>
-  <a href="/atendimento/">Atuação</a><span aria-hidden="true">/</span>
-  <span>${esc(c.name)}</span>
-</nav>
+${breadcrumbHtml(crumbs)}
 <p class="kicker kicker--light">// Atuação</p>
 <h1 class="h1">Entrega de pisos e porcelanatos em ${esc(c.name)}</h1>
 <p class="page-hero__lead">Frete de revestimentos com foco em ${esc(c.keyword)} — cuidado no transporte e atendimento direto.</p>
 <div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes atende ${esc(c.name)} com entrega de pisos e porcelanatos para construtoras, lojas e cliente final, cobrindo ${esc(c.context)}.</div>`;
 
-  const body = `<div class="prose">
+  const sections = `<section class="section section--light">
+  <div class="wrap page-content">
+    <div class="page-content__main">
+      <div class="prose reveal">
 <p>A ELS Transportes realiza coletas e entregas de <strong>pisos e porcelanatos</strong> em <strong>${esc(c.name)}</strong>. Trabalhamos com construtoras, lojas de revestimentos e cliente final que precisam de frete confiável, comunicação clara e prazos cumpridos.</p>
 <p>Nesta região, atendemos demandas ligadas a ${esc(c.context)}. Avaliamos cada rota para garantir o cuidado necessário com caixas, pallets e material frágil.</p>
 <h2>Serviços disponíveis em ${esc(c.name)}</h2>
@@ -503,8 +554,12 @@ for (const c of cities) {
 <li><a href="/servicos/cliente-final.html">Entrega para cliente final</a></li>
 </ul>
 <h2>Perguntas frequentes</h2>
-</div>
-${faqHtml(faq)}`;
+      </div>
+${faqHtml(faq)}
+    </div>
+    ${pageAside("Orçamento para " + c.name, "Informe origem, destino e volume para receber proposta pelo WhatsApp.")}
+  </div>
+</section>`;
 
   await writePage(
     `atendimento/${c.slug}.html`,
@@ -516,13 +571,9 @@ ${faqHtml(faq)}`;
         path,
       },
       hero,
-      body,
+      sections,
       jsonLd:
-        breadcrumbJson([
-          { name: "Início", path: "/" },
-          { name: "Atuação", path: "/atendimento/" },
-          { name: c.name, path },
-        ]) + localServiceJson(c, path) + faqJson(faq),
+        breadcrumbJson(crumbs) + localServiceJson(c, path) + faqJson(faq),
     })
   );
 }
@@ -530,27 +581,34 @@ ${faqHtml(faq)}`;
 // Polo cerâmico pages (coleta / origem)
 for (const p of polos) {
   const path = `/atendimento/${p.slug}.html`;
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: "Atuação", path: "/atendimento/" },
+    { name: p.name, path },
+  ];
 
   const hero = `
-<nav class="breadcrumb" aria-label="Trilha de navegação">
-  <a href="/">Início</a><span aria-hidden="true">/</span>
-  <a href="/atendimento/">Atuação</a><span aria-hidden="true">/</span>
-  <span>${esc(p.name)}</span>
-</nav>
+${breadcrumbHtml(crumbs)}
 <p class="kicker kicker--light">// Polo cerâmico</p>
 <h1 class="h1">Frete de pisos e porcelanatos saindo de ${esc(p.name)}</h1>
 <p class="page-hero__lead">${esc(p.lead)}</p>
 <div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes realiza coleta no ${esc(p.keyword.split(" saindo de ")[1] || p.name)} e transporte de revestimentos com cuidado, atendimento direto e cobertura regional e nacional.</div>`;
 
-  const body = `<div class="prose">
+  const sections = `<section class="section section--light">
+  <div class="wrap page-content">
+    <div class="page-content__main">
+      <div class="prose reveal">
 ${p.intro.map((para) => `<p>${esc(para)}</p>`).join("\n")}
 <h2>Operação no ${esc(p.name)}</h2>
 <ul>${p.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
 <p>Informe o ponto de coleta, destino, quantidade de caixas ou pallets e prazo para receber orçamento. Atendemos construtoras, lojas e cliente final em todo o trajeto.</p>
 <h2>Perguntas frequentes</h2>
-</div>
+      </div>
 ${faqHtml(p.faq)}
-<p style="margin-top:2rem"><a class="btn btn--red" href="${WPP}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a></p>`;
+    </div>
+    ${pageAside("Coleta no polo", "Informe origem, destino e volume para orçamento de frete saindo do polo cerâmico.")}
+  </div>
+</section>`;
 
   await writePage(
     `atendimento/${p.slug}.html`,
@@ -562,13 +620,9 @@ ${faqHtml(p.faq)}
         path,
       },
       hero,
-      body,
+      sections,
       jsonLd:
-        breadcrumbJson([
-          { name: "Início", path: "/" },
-          { name: "Atuação", path: "/atendimento/" },
-          { name: p.name, path },
-        ]) +
+        breadcrumbJson(crumbs) +
         serviceJson({ title: `Coleta em ${p.name}`, lead: p.lead }, path) +
         faqJson(p.faq),
     })
@@ -576,21 +630,20 @@ ${faqHtml(p.faq)}
 }
 
 // Atendimento hub
-const cityCards = cities
-  .map(
-    (c) => `<a class="link-card" href="/atendimento/${c.slug}.html">
-  <strong>${esc(c.name)}</strong>
-  <span>${esc(c.keyword)}</span>
-</a>`
-  )
+const cityChips = cities
+  .map((c) => `<li><a href="/atendimento/${c.slug}.html">${esc(c.name)}</a></li>`)
   .join("\n");
 
-const poloCards = polos
+const poloHubCards = polos
   .map(
-    (p) => `<a class="link-card" href="/atendimento/${p.slug}.html">
-  <strong>${esc(p.name)}</strong>
-  <span>${esc(p.keyword)}</span>
-</a>`
+    (p, i) => `<article class="card reveal">
+  <span class="card__num">${String(i + 1).padStart(2, "0")}</span>
+  <h3 class="card__title"><a href="/atendimento/${p.slug}.html">${esc(p.name)}</a></h3>
+  <p class="card__text">${esc(p.lead)}</p>
+  <ul class="card__list">
+${p.bullets.slice(0, 3).map((b) => `    <li>${esc(b)}</li>`).join("\n")}
+  </ul>
+</article>`
   )
   .join("\n");
 
@@ -604,14 +657,34 @@ await writePage(
       path: "/atendimento/",
     },
     hero: `
+${breadcrumbHtml([
+  { name: "Início", path: "/" },
+  { name: "Atuação", path: "/atendimento/" },
+])}
 <p class="kicker kicker--light">// Atuação</p>
 <h1 class="h1">De SP ao Brasil: onde entregamos</h1>
 <p class="page-hero__lead">Cobertura regional para construtoras, lojas e cliente final — coleta nos principais polos cerâmicos e cargas fechadas interestaduais.</p>`,
-    body: `<div class="prose"><h2>Regiões de entrega</h2></div>
-<div class="link-grid">${cityCards}</div>
-<div class="prose" style="margin-top:3rem"><h2>Polos cerâmicos de coleta</h2>
-<p>Coletamos pisos e porcelanatos nas principais regiões produtoras do Brasil — onde está a fabricação nacional de revestimentos.</p></div>
-<div class="link-grid">${poloCards}</div>`,
+    sections: `<section class="section section--dark atuacao">
+  <span class="atuacao__grid-bg" aria-hidden="true"></span>
+  <div class="wrap atuacao__inner">
+    <div class="section__head reveal">
+      <p class="kicker kicker--light">// Regiões de entrega</p>
+      <h2 class="h2 h2--light">Onde sua carga precisa chegar<span class="accent">.</span></h2>
+      <p class="atuacao__lead reveal">Atendemos São Paulo, interior paulista, Campinas, Belo Horizonte e cargas fechadas para qualquer estado do país.</p>
+    </div>
+    <ul class="chips reveal">${cityChips}</ul>
+  </div>
+</section>
+<section class="section section--dark polos">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="kicker kicker--light">// Origem da carga</p>
+      <h2 class="h2 h2--light">Coleta nos principais polos cerâmicos<span class="accent">.</span></h2>
+      <p class="atuacao__lead reveal">Coletamos pisos e porcelanatos nas principais regiões produtoras do Brasil.</p>
+    </div>
+    <div class="cards">${poloHubCards}</div>
+  </div>
+</section>`,
     jsonLd: breadcrumbJson([
       { name: "Início", path: "/" },
       { name: "Atuação", path: "/atendimento/" },
@@ -631,7 +704,17 @@ const institutional = [
     path: "/sobre.html",
     h1: "Sobre a ELS Transportes",
     lead: "Transportadora especializada em pisos e porcelanatos, com atendimento direto e foco em cuidado, pontualidade e segurança.",
-    body: `<div class="prose">
+    asideTitle: "Especialistas em revestimentos",
+    asideText: "Operação enxuta com atendimento direto pelo WhatsApp.",
+    sections: `<section class="section section--light">
+  <div class="wrap sobre__grid">
+    <div class="sobre__head reveal">
+      <p class="kicker">// Quem somos</p>
+      <h2 class="h2">Especialistas em revestimentos<span class="accent">.</span></h2>
+      <p class="faq__lead">Transportadora enxuta com atendimento direto e foco em cuidado, pontualidade e segurança.</p>
+    </div>
+    <div class="sobre__body reveal">
+      <div class="prose">
 <p>A <strong>ELS Transportes</strong> nasceu para resolver a logística de <strong>pisos e porcelanatos</strong> com o cuidado que revestimentos exigem. Somos uma operação enxuta, com atendimento direto e foco em entregar no prazo — sem burocracia.</p>
 <p>Atendemos <a href="/servicos/construtoras.html">construtoras</a>, <a href="/servicos/lojas-boutiques.html">lojas e boutiques</a> e <a href="/servicos/cliente-final.html">cliente final</a>, com cobertura em São Paulo, Grande São Paulo, Litoral, Vale do Paraíba, Campinas, Belo Horizonte e <a href="/atendimento/todo-brasil.html">cargas fechadas para todo o Brasil</a>.</p>
 <h2>Polos cerâmicos de coleta</h2>
@@ -644,7 +727,10 @@ const institutional = [
 </ul>
 <h2>Área de atuação</h2>
 <p>Operamos em macro-regiões de São Paulo, interior, Campinas, Minas Gerais e rotas interestaduais. Veja a lista completa em <a href="/atendimento/">Área de atuação</a>.</p>
-</div>`,
+      </div>
+    </div>
+  </div>
+</section>`,
   },
   {
     file: "contato.html",
@@ -654,18 +740,33 @@ const institutional = [
     path: "/contato.html",
     h1: "Contato",
     lead: "Orçamento de frete de pisos e porcelanatos com atendimento direto. Informe origem, destino e quantidade de caixas ou pallets.",
-    body: `<div class="prose">
-<h2>WhatsApp</h2>
-<p>Canal principal para orçamentos e dúvidas operacionais: <a href="${WPP}" target="_blank" rel="noopener noreferrer">${PHONE_DISPLAY}</a>.</p>
-<h2>E-mail</h2>
-<p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
-<h2>Horário de atendimento</h2>
-<p>Segunda a sexta-feira, das 08h às 18h.</p>
-<h2>Área atendida</h2>
-<p>São Paulo Capital, Grande São Paulo, Litoral Paulista, Vale do Paraíba (até Aparecida do Norte), Campinas e região, Belo Horizonte e Grande BH, além de cargas fechadas para todo o Brasil. Coletamos nos polos cerâmicos de Santa Gertrudes, Criciúma e Mogi Guaçu. Consulte <a href="/atendimento/">regiões e polos atendidos</a>.</p>
-<h2>Privacidade</h2>
-<p>Dados enviados por WhatsApp ou e-mail são usados apenas para responder sua solicitação. Leia a <a href="/politica-de-privacidade.html">Política de Privacidade</a>.</p>
-</div>`,
+    ctaOptions: { secondaryHref: "/", secondaryLabel: "Voltar ao início" },
+    sections: `<section class="section section--light">
+  <div class="wrap">
+    <div class="contact-cards reveal">
+      <article class="contact-card">
+        <h2>WhatsApp</h2>
+        <p>Canal principal para orçamentos e dúvidas operacionais: <a href="${WPP}" target="_blank" rel="noopener noreferrer">${PHONE_DISPLAY}</a>.</p>
+      </article>
+      <article class="contact-card">
+        <h2>E-mail</h2>
+        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+      </article>
+      <article class="contact-card">
+        <h2>Horário</h2>
+        <p>Segunda a sexta-feira, das 08h às 18h.</p>
+      </article>
+      <article class="contact-card contact-card--full">
+        <h2>Área atendida</h2>
+        <p>São Paulo Capital, Grande São Paulo, Litoral Paulista, Vale do Paraíba (até Aparecida do Norte), Campinas e região, Belo Horizonte e Grande BH, além de cargas fechadas para todo o Brasil. Coletamos nos polos cerâmicos de Santa Gertrudes, Criciúma e Mogi Guaçu. Consulte <a href="/atendimento/">regiões e polos atendidos</a>.</p>
+      </article>
+    </div>
+    <div class="prose reveal">
+      <h2>Privacidade</h2>
+      <p>Dados enviados por WhatsApp ou e-mail são usados apenas para responder sua solicitação. Leia a <a href="/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+    </div>
+  </div>
+</section>`,
   },
   {
     file: "politica-de-privacidade.html",
@@ -675,7 +776,10 @@ const institutional = [
     path: "/politica-de-privacidade.html",
     h1: "Política de Privacidade",
     lead: "Transparência sobre coleta e uso de dados pessoais.",
-    body: `<div class="prose">
+    sections: `<section class="section section--light">
+  <div class="wrap page-content">
+    <div class="page-content__main">
+      <div class="prose reveal">
 <p><strong>Última atualização:</strong> 16 de junho de 2026.</p>
 <p>A ELS Transportes respeita a privacidade dos visitantes e clientes. Esta política descreve quais dados podemos receber e como os utilizamos.</p>
 <h2>1. Quem somos</h2>
@@ -697,7 +801,11 @@ const institutional = [
 <p>Você pode solicitar acesso, correção, exclusão, portabilidade ou informações sobre tratamento pelo e-mail <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
 <h2>8. Segurança</h2>
 <p>Adotamos medidas técnicas e organizacionais compatíveis com a operação para proteger os dados recebidos.</p>
-</div>`,
+      </div>
+    </div>
+    ${pageAside("Dúvidas sobre privacidade", "Entre em contato pelo e-mail ou WhatsApp para exercer seus direitos.")}
+  </div>
+</section>`,
   },
   {
     file: "termos-de-uso.html",
@@ -707,7 +815,10 @@ const institutional = [
     path: "/termos-de-uso.html",
     h1: "Termos de Uso",
     lead: "Condições de uso deste site institucional.",
-    body: `<div class="prose">
+    sections: `<section class="section section--light">
+  <div class="wrap page-content">
+    <div class="page-content__main">
+      <div class="prose reveal">
 <p><strong>Última atualização:</strong> 16 de junho de 2026.</p>
 <p>Ao acessar <strong>elstransportes.com.br</strong>, você concorda com estes termos.</p>
 <h2>1. Objeto</h2>
@@ -724,25 +835,32 @@ const institutional = [
 <p>Estes termos podem ser atualizados a qualquer momento. A data de revisão será indicada no topo da página.</p>
 <h2>7. Contato</h2>
 <p>Dúvidas: <a href="mailto:${EMAIL}">${EMAIL}</a> ou WhatsApp ${PHONE_DISPLAY}.</p>
-</div>`,
+      </div>
+    </div>
+    ${pageAside("Precisa de ajuda?", "Fale conosco pelo WhatsApp ou e-mail para esclarecer dúvidas sobre o site.")}
+  </div>
+</section>`,
   },
 ];
 
 for (const page of institutional) {
+  const crumbs = [
+    { name: "Início", path: "/" },
+    { name: page.h1, path: page.path },
+  ];
   await writePage(
     page.file,
     renderPage({
       active: page.active,
       headMeta: { title: page.title, description: page.description, path: page.path },
       hero: `
+${breadcrumbHtml(crumbs)}
 <p class="kicker kicker--light">// Institucional</p>
 <h1 class="h1">${esc(page.h1)}</h1>
 <p class="page-hero__lead">${esc(page.lead)}</p>`,
-      body: page.body,
-      jsonLd: breadcrumbJson([
-        { name: "Início", path: "/" },
-        { name: page.h1, path: page.path },
-      ]),
+      sections: page.sections,
+      jsonLd: breadcrumbJson(crumbs),
+      ctaOptions: page.ctaOptions,
     })
   );
 }
