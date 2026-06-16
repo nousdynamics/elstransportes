@@ -195,4 +195,89 @@
       if (n <= 0) { clearInterval(t); window.location.href = waUrl2; }
     }, 1000);
   }
+
+  // Mapa de cobertura (seção nacional)
+  var mapEl = document.getElementById("cobertura-map");
+  if (mapEl) {
+    var leafletCss = document.createElement("link");
+    leafletCss.rel = "stylesheet";
+    leafletCss.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    leafletCss.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
+    leafletCss.crossOrigin = "";
+    document.head.appendChild(leafletCss);
+
+    var leafletJs = document.createElement("script");
+    leafletJs.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    leafletJs.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
+    leafletJs.crossOrigin = "";
+    leafletJs.onload = function () {
+      var reduceMap = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var map = L.map(mapEl, {
+        center: [-18.5, -50],
+        zoom: 4,
+        minZoom: 3,
+        maxZoom: 8,
+        scrollWheelZoom: false,
+        attributionControl: true,
+      });
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: "abcd",
+        maxZoom: 19,
+      }).addTo(map);
+
+      var poloIcon = L.divIcon({
+        className: "map-marker map-marker--polo",
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+      });
+      var hubIcon = L.divIcon({
+        className: "map-marker map-marker--hub",
+        iconSize: [11, 11],
+        iconAnchor: [5.5, 5.5],
+      });
+
+      var polos = [
+        { name: "Santa Gertrudes (SP)", lat: -22.456, lng: -47.53 },
+        { name: "Mogi Guaçu (SP)", lat: -22.372, lng: -46.942 },
+        { name: "Criciúma (SC)", lat: -28.678, lng: -49.37 },
+      ];
+      var hubs = [
+        { name: "São Paulo", lat: -23.55, lng: -46.633 },
+        { name: "Campinas", lat: -22.906, lng: -47.063 },
+        { name: "Belo Horizonte", lat: -19.916, lng: -43.934 },
+      ];
+
+      polos.forEach(function (p) {
+        L.marker([p.lat, p.lng], { icon: poloIcon })
+          .addTo(map)
+          .bindTooltip(p.name, { direction: "top", offset: [0, -8] });
+      });
+      hubs.forEach(function (h) {
+        L.marker([h.lat, h.lng], { icon: hubIcon })
+          .addTo(map)
+          .bindTooltip(h.name + " — entrega", { direction: "top", offset: [0, -6] });
+      });
+
+      var fit = function () {
+        map.invalidateSize();
+        map.fitBounds(
+          L.latLngBounds(
+            polos.concat(hubs).map(function (m) { return [m.lat, m.lng]; })
+          ).pad(0.35),
+          { animate: !reduceMap }
+        );
+      };
+
+      setTimeout(fit, 350);
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) fit();
+        }).observe(mapEl);
+      }
+      window.addEventListener("resize", fit);
+    };
+    document.body.appendChild(leafletJs);
+  }
 })();
