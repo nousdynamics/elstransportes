@@ -1,22 +1,38 @@
 # ELS Transportes
 
-> Transportadora rodoviária na Grande São Paulo. Cargas gerais, dedicadas e fracionadas.
+> Entrega de pisos e porcelanatos para construtoras, lojas e cliente final. Coleta nos polos cerâmicos de Santa Gertrudes, Criciúma e Mogi Guaçu. SP, interior, Campinas, BH e cargas fechadas para todo o Brasil.
 
 Site institucional em português (pt-BR). Canal principal de contato: WhatsApp (11) 96462-0149.
 
 ## Páginas prioritárias
 
 - [Home](https://elstransportes.com.br/): visão geral da empresa e serviços
-- [Serviços](https://elstransportes.com.br/servicos/): cargas gerais, dedicadas e fracionadas
-- [Área de atuação](https://elstransportes.com.br/atendimento/): localidades atendidas na RMSP
+- [Serviços](https://elstransportes.com.br/servicos/): construtoras, lojas e cliente final
+- [Área de atuação](https://elstransportes.com.br/atendimento/): regiões de entrega e polos cerâmicos de coleta
 - [Sobre](https://elstransportes.com.br/sobre.html): história e pilares da empresa
 - [Contato](https://elstransportes.com.br/contato.html): WhatsApp, e-mail e horário
 
 ## Serviços
 
-- [Cargas gerais e fretes](https://elstransportes.com.br/servicos/cargas-gerais.html)
-- [Cargas dedicadas](https://elstransportes.com.br/servicos/cargas-dedicadas.html)
-- [Cargas fracionadas](https://elstransportes.com.br/servicos/cargas-fracionadas.html)
+- [Entrega para construtoras](https://elstransportes.com.br/servicos/construtoras.html)
+- [Entrega para lojas e boutiques](https://elstransportes.com.br/servicos/lojas-boutiques.html)
+- [Entrega para cliente final](https://elstransportes.com.br/servicos/cliente-final.html)
+
+## Regiões de entrega
+
+- [São Paulo — Capital](https://elstransportes.com.br/atendimento/sao-paulo-capital.html)
+- [Grande São Paulo](https://elstransportes.com.br/atendimento/grande-sao-paulo.html)
+- [Litoral Paulista](https://elstransportes.com.br/atendimento/litoral-paulista.html)
+- [Vale do Paraíba](https://elstransportes.com.br/atendimento/vale-do-paraiba.html)
+- [Campinas e região](https://elstransportes.com.br/atendimento/campinas-regiao.html)
+- [Belo Horizonte e Grande BH](https://elstransportes.com.br/atendimento/belo-horizonte-grande-bh.html)
+- [Todo o Brasil — cargas fechadas](https://elstransportes.com.br/atendimento/todo-brasil.html)
+
+## Polos cerâmicos de coleta
+
+- [Polo de Santa Gertrudes (SP)](https://elstransportes.com.br/atendimento/polo-santa-gertrudes.html) — maior polo cerâmico do Brasil e das Américas (~65–70% da produção nacional)
+- [Polo de Criciúma (SC)](https://elstransportes.com.br/atendimento/polo-criciuma.html) — referência em porcelanato premium e exportação
+- [Polo de Mogi Guaçu (SP)](https://elstransportes.com.br/atendimento/polo-mogi-guacu.html) — polo cerâmico histórico do interior paulista
 
 ## Políticas
 

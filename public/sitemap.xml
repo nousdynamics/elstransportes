@@ -2,145 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://elstransportes.com.br/</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/sobre.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/contato.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/politica-de-privacidade.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/termos-de-uso.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/servicos/</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/servicos/cargas-gerais.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/servicos/construtoras.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/servicos/cargas-dedicadas.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/servicos/lojas-boutiques.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/servicos/cargas-fracionadas.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/servicos/cliente-final.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/atendimento/</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://elstransportes.com.br/atendimento/sao-paulo-capital.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/zona-leste.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/grande-sao-paulo.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/zona-norte.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/litoral-paulista.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/zona-sul.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/vale-do-paraiba.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/zona-oeste.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/campinas-regiao.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/grande-abc.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/belo-horizonte-grande-bh.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/guarulhos.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/todo-brasil.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/osasco.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/polo-santa-gertrudes.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/barueri.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/polo-criciuma.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elstransportes.com.br/atendimento/maua.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elstransportes.com.br/atendimento/diadema.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elstransportes.com.br/atendimento/sao-bernardo-do-campo.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elstransportes.com.br/atendimento/santo-andre.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elstransportes.com.br/atendimento/regiao-metropolitana.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <loc>https://elstransportes.com.br/atendimento/polo-mogi-guacu.html</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

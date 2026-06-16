@@ -13,78 +13,124 @@ const root = join(__dirname, "..", "public");
 const SITE = "https://elstransportes.com.br";
 const PHONE = "+5511964620149";
 const PHONE_DISPLAY = "(11) 96462-0149";
-const WPP = `https://wa.me/5511964620149?text=${encodeURIComponent("Olá! Gostaria de um orçamento de transporte.")}`;
+const WPP = `https://wa.me/5511964620149?text=${encodeURIComponent("Olá! Gostaria de um orçamento para transporte de pisos e porcelanatos.")}`;
 const EMAIL = "els@elstransportes.com.br";
+const OG_ALT = "ELS Transportes — entrega de pisos e porcelanatos em SP, interior e Brasil";
+const FOOTER_TAGLINE = "Cuidado em cada entrega de revestimento.";
 
 const services = [
   {
-    slug: "cargas-gerais",
-    title: "Cargas Gerais e Fretes",
-    keyword: "cargas gerais e fretes na Grande São Paulo",
-    h1: "Cargas gerais e fretes na Grande São Paulo",
-    lead: "Transporte rodoviário de mercadorias em geral, com coletas programadas e atendimento direto para operações do dia a dia.",
+    slug: "construtoras",
+    title: "Entrega para Construtoras",
+    keyword: "entrega de pisos e porcelanatos para construtoras",
+    h1: "Entrega de pisos e porcelanatos para construtoras",
+    lead: "Transporte de revestimentos para obras e canteiros, com entregas programadas, cuidado no manuseio e comunicação direta com a equipe da construtora.",
     intro: [
-      "A ELS Transportes realiza transporte de cargas gerais e fretes rodoviários em toda a Grande São Paulo. Atendemos empresas e operações que precisam mover mercadorias com regularidade, flexibilidade de volume e comunicação clara do início ao fim.",
-      "Este serviço é indicado para distribuição urbana e metropolitana, reposição de estoque, entregas B2B e fluxos recorrentes que exigem pontualidade sem burocracia.",
+      "A ELS Transportes leva pisos e porcelanatos até obras e canteiros em São Paulo, interior paulista, Campinas e Belo Horizonte. Entendemos a rotina da construção: cronograma apertado, acesso restrito e material frágil que não pode chegar quebrado.",
+      "Atendemos construtoras com coletas em fábricas e distribuidores dos principais polos cerâmicos — como Santa Gertrudes, Mogi Guaçu e Criciúma — com entrega alinhada à janela da obra. Pallets e caixas são transportados com cuidado e acompanhamento do início ao fim.",
     ],
-    bullets: ["Coletas e entregas programadas", "Volumes diversos", "Atendimento direto pelo WhatsApp", "Rotas na capital e região metropolitana"],
+    bullets: ["Entregas programadas para obras", "Cuidado com pallets e caixas", "Volumes maiores e lotes completos", "Atendimento direto pelo WhatsApp"],
     faq: [
-      { q: "Que tipo de mercadoria entra em carga geral?", a: "Atendemos mercadorias em geral dentro da operação rodoviária urbana e metropolitana. Para cargas especiais ou restritas, informe dimensões, peso e tipo de produto no orçamento." },
-      { q: "Vocês atendem empresas com entregas recorrentes?", a: "Sim. Podemos estruturar coletas e entregas programadas conforme a demanda da sua operação na Grande São Paulo." },
-      { q: "Como solicito orçamento de frete?", a: `Informe origem, destino, volume e prazo pelo WhatsApp ${PHONE_DISPLAY}. Respondemos com proposta objetiva.` },
+      { q: "Vocês entregam direto no canteiro de obras?", a: "Sim, quando o acesso do veículo permite. Informe endereço, restrições de horário e tipo de acesso no orçamento para planejarmos a melhor operação." },
+      { q: "Atendem construtoras com entregas recorrentes?", a: "Sim. Estruturamos rotas e janelas conforme o cronograma da obra e o volume de revestimentos necessário em cada etapa." },
+      { q: "Como solicito orçamento para uma obra?", a: `Envie origem, destino, quantidade de caixas ou pallets e prazo pelo WhatsApp ${PHONE_DISPLAY}. Respondemos com proposta objetiva.` },
     ],
   },
   {
-    slug: "cargas-dedicadas",
-    title: "Cargas Dedicadas",
-    keyword: "carga dedicada na Grande São Paulo",
-    h1: "Carga dedicada com veículo exclusivo na Grande São Paulo",
-    lead: "Veículo exclusivo para sua mercadoria, rota direta e prioridade total — ideal para prazos críticos e cargas sensíveis.",
+    slug: "lojas-boutiques",
+    title: "Entrega para Lojas e Boutiques",
+    keyword: "frete de pisos e porcelanatos para lojas",
+    h1: "Entrega de pisos e porcelanatos para lojas e boutiques",
+    lead: "Reposição de estoque, entregas em showrooms e atendimento a revendas de revestimentos — com agendamento e cuidado no transporte.",
     intro: [
-      "Na carga dedicada, o veículo é reservado exclusivamente para a sua operação. Não há consolidação com outros clientes: a rota é montada para atender origem, destino e prazo combinados.",
-      "É a modalidade indicada para entregas urgentes, insumos críticos, peças de reposição, materiais de alto valor agregado ou qualquer envio que não pode aguardar paradas intermediárias.",
+      "Lojas e boutiques de pisos e porcelanatos precisam de frete confiável para não parar a venda. A ELS Transportes faz coleta em fábricas dos polos cerâmicos, distribuidores e depósitos, entregando no ponto combinado com respeito ao horário de funcionamento e ao espaço de recebimento.",
+      "Atendemos revendas, showrooms e lojas de acabamento com volumes variados — desde lotes para reposição até entregas maiores para clientes da loja, sempre com comunicação clara sobre coleta e chegada.",
     ],
-    bullets: ["Veículo exclusivo", "Rota direta", "Menor prazo possível na região", "Prioridade operacional"],
+    bullets: ["Agendamento com a loja", "Reposição de estoque", "Entregas em showroom e depósito", "Cuidado com material frágil"],
     faq: [
-      { q: "Quando escolher carga dedicada em vez de fracionada?", a: "Quando o prazo é crítico, a carga não pode compartilhar espaço ou exige controle total do trajeto. A dedicada elimina paradas de consolidação." },
-      { q: "A carga dedicada atende entregas urgentes?", a: "Sim. É a modalidade usada para urgências dentro da Grande São Paulo, com veículo reservado e rota otimizada." },
-      { q: "Como calcular o frete dedicado?", a: "Depende de origem, destino, tipo de veículo, janela de coleta e prazo. Envie esses dados pelo WhatsApp para orçamento rápido." },
+      { q: "Vocês coletam em distribuidores e entregam na loja?", a: "Sim. Informe o ponto de coleta, o destino e o volume para montarmos a rota e o orçamento." },
+      { q: "É possível agendar horário de entrega?", a: "Sim. Combinamos janela de entrega com antecedência para não atrapalhar o atendimento na loja." },
+      { q: "Atendem lojas fora da Grande São Paulo?", a: "Sim. Atendemos também Litoral, Vale do Paraíba, Campinas, Belo Horizonte e cargas fechadas para todo o Brasil." },
     ],
   },
   {
-    slug: "cargas-fracionadas",
-    title: "Cargas Fracionadas",
-    keyword: "carga fracionada na Grande São Paulo",
-    h1: "Carga fracionada na Grande São Paulo",
-    lead: "Consolidação de volumes menores com custo otimizado, mantendo cuidado operacional e cobertura metropolitana.",
+    slug: "cliente-final",
+    title: "Entrega para Cliente Final",
+    keyword: "frete de pisos e porcelanatos para cliente final",
+    h1: "Entrega de pisos e porcelanatos para cliente final",
+    lead: "Transporte de revestimentos para reformas e obras residenciais, com atendimento direto, agendamento e cuidado na descarga.",
     intro: [
-      "A carga fracionada permite que sua mercadoria compartilhe o veículo com outros envios compatíveis, reduzindo o custo do frete sem abrir mão de um padrão de cuidado e comunicação.",
-      "Funciona bem para lotes menores, e-commerce B2B, distribuição complementar e operações que não justificam um veículo exclusivo, mas precisam de transporte confiável na região.",
+      "Comprou pisos ou porcelanatos e precisa levar até casa ou até a obra da reforma? A ELS Transportes atende o cliente final com atendimento simples pelo WhatsApp, sem burocracia.",
+      "Coletamos no distribuidor, na loja ou no depósito e entregamos no endereço combinado — residência, condomínio ou pequena obra. Você acompanha o processo e recebe no prazo acordado.",
     ],
-    bullets: ["Custo otimizado", "Consolidação inteligente", "Ideal para lotes menores", "Cobertura metropolitana"],
+    bullets: ["Atendimento direto e sem burocracia", "Coleta na loja ou distribuidor", "Entrega em residência ou obra", "Agendamento de janela"],
     faq: [
-      { q: "Carga fracionada demora mais que a dedicada?", a: "Em geral sim, porque envolve consolidação e roteirização compartilhada. Ainda assim, planejamos janelas realistas e informamos prazo antes da coleta." },
-      { q: "Qual volume mínimo para fracionada?", a: "Não há um único mínimo fixo: avaliamos dimensões, peso, origem e destino. Envie os dados da carga para indicarmos a melhor modalidade." },
-      { q: "Posso combinar fracionada com entregas recorrentes?", a: "Sim, quando o perfil de volume se mantém compatível com consolidação. Avaliamos caso a caso na Grande São Paulo." },
+      { q: "Vocês entregam em condomínio e apartamento?", a: "Sim, quando o acesso do veículo e as regras do condomínio permitem. Informe restrições de horário e tipo de acesso no pedido de orçamento." },
+      { q: "Preciso estar presente na entrega?", a: "Recomendamos que alguém autorizado receba a carga e confira as caixas. Combinamos horário com antecedência." },
+      { q: "Como peço orçamento sendo pessoa física?", a: `Chame no WhatsApp ${PHONE_DISPLAY} com origem, destino, quantidade de caixas e data desejada. Respondemos rápido.` },
     ],
   },
 ];
 
 const cities = [
-  { slug: "sao-paulo-capital", name: "São Paulo — Capital", keyword: "transportadora em São Paulo capital", context: "circulação entre zonas da capital, centros logísticos e vias de ligação metropolitana" },
-  { slug: "zona-leste", name: "Zona Leste", keyword: "frete zona leste São Paulo", context: "distritos industriais, comércio atacadista e ligações com ABC e Guarulhos" },
-  { slug: "zona-norte", name: "Zona Norte", keyword: "transportadora zona norte São Paulo", context: "fluxos para marginais, centros de distribuição e corredores de saída da capital" },
-  { slug: "zona-sul", name: "Zona Sul", keyword: "frete zona sul São Paulo", context: "entregas urbanas e conexão rápida com ABC e rodovias de acesso sul" },
-  { slug: "zona-oeste", name: "Zona Oeste", keyword: "transportadora zona oeste São Paulo", context: "operações próximas a Osasco, Barueri e eixos corporativos da região oeste" },
-  { slug: "grande-abc", name: "Grande ABC", keyword: "transportadora Grande ABC", context: "polo industrial do ABC, entregas intermunicipais e abastecimento fabril" },
-  { slug: "guarulhos", name: "Guarulhos", keyword: "transportadora em Guarulhos", context: "proximidade aeroportuária, centros logísticos e corredor leste metropolitano" },
-  { slug: "osasco", name: "Osasco", keyword: "frete em Osasco", context: "distribuição corporativa, eixos comerciais e ligação oeste-capital" },
-  { slug: "barueri", name: "Barueri", keyword: "transportadora em Barueri", context: "centros empresariais, galpões logísticos e entregas na região oeste" },
-  { slug: "maua", name: "Mauá", keyword: "frete em Mauá", context: "indústria, varejo e integração com corredor ABC-metropolitano" },
-  { slug: "diadema", name: "Diadema", keyword: "transportadora em Diadema", context: "operações industriais e entregas rápidas entre ABC e capital" },
-  { slug: "sao-bernardo-do-campo", name: "São Bernardo do Campo", keyword: "frete São Bernardo do Campo", context: "polo automotivo, metal-mecânico e distribuição regional" },
-  { slug: "santo-andre", name: "Santo André", keyword: "transportadora Santo André", context: "centro comercial e industrial do ABC com alta demanda de fretes urbanos" },
-  { slug: "regiao-metropolitana", name: "Região Metropolitana", keyword: "transportadora região metropolitana São Paulo", context: "integração entre capital, ABC, GRU, Osasco, Barueri e demais municípios da RMSP" },
+  { slug: "sao-paulo-capital", name: "São Paulo — Capital", keyword: "entrega de pisos em São Paulo capital", context: "entregas na capital paulista, obras urbanas, lojas e clientes finais em todas as zonas" },
+  { slug: "grande-sao-paulo", name: "Grande São Paulo", keyword: "frete de porcelanato Grande São Paulo", context: "RMSP, ABC, Guarulhos, Osasco, Barueri e demais municípios da região metropolitana" },
+  { slug: "litoral-paulista", name: "Litoral Paulista", keyword: "transportadora de pisos no litoral de SP", context: "Baixada Santista e cidades do litoral norte e sul paulista" },
+  { slug: "vale-do-paraiba", name: "Vale do Paraíba", keyword: "frete de porcelanato Vale do Paraíba", context: "corredor do Vale do Paraíba até Aparecida do Norte e cidades do entorno" },
+  { slug: "campinas-regiao", name: "Campinas e região", keyword: "entrega de pisos em Campinas", context: "Região Metropolitana de Campinas, interior próximo e ligação com o polo cerâmico de Santa Gertrudes (Rio Claro, Limeira, Piracicaba)" },
+  { slug: "belo-horizonte-grande-bh", name: "Belo Horizonte e Grande BH", keyword: "frete de porcelanato em Belo Horizonte", context: "capital mineira e região metropolitana de Belo Horizonte" },
+  { slug: "todo-brasil", name: "Todo o Brasil", keyword: "carga fechada de pisos para todo o Brasil", context: "cargas fechadas interestaduais de pisos e porcelanatos para qualquer estado" },
+];
+
+const polos = [
+  {
+    slug: "polo-santa-gertrudes",
+    name: "Polo de Santa Gertrudes",
+    keyword: "frete de porcelanato saindo de Santa Gertrudes",
+    lead: "Coleta e transporte de revestimentos no maior polo cerâmico do Brasil e das Américas — responsável por cerca de 65% a 70% da produção nacional de pisos e porcelanatos.",
+    intro: [
+      "O polo de Santa Gertrudes, no interior paulista, é a principal região produtora de revestimentos cerâmicos do país. A ELS Transportes realiza coleta em fábricas, centros de distribuição e depósitos da região, com destino a obras, lojas e clientes finais em São Paulo, interior, Campinas e outras regiões.",
+      "A área engloba cidades como Santa Gertrudes, Cordeirópolis, Rio Claro, Limeira, Araras e Piracicaba — corredor industrial com alta concentração de fabricantes de pisos e porcelanatos.",
+    ],
+    bullets: ["Coleta em fábricas e distribuidores", "Região de Santa Gertrudes, Rio Claro e Limeira", "Entregas para obras, lojas e cliente final", "Cargas fechadas para todo o Brasil"],
+    faq: [
+      { q: "Vocês coletam em fábricas de Santa Gertrudes e região?", a: "Sim. Realizamos coleta no polo cerâmico de Santa Gertrudes e cidades do entorno, conforme endereço de origem e tipo de carga." },
+      { q: "Para onde vocês entregam cargas saindo desse polo?", a: "Entregamos na Grande São Paulo, interior paulista, Litoral, Vale do Paraíba, Campinas, Belo Horizonte e realizamos cargas fechadas interestaduais." },
+      { q: "Como pedir orçamento com origem em Santa Gertrudes?", a: `Informe o ponto de coleta, destino, quantidade de caixas ou pallets e prazo pelo WhatsApp ${PHONE_DISPLAY}.` },
+    ],
+  },
+  {
+    slug: "polo-criciuma",
+    name: "Polo de Criciúma",
+    keyword: "frete de porcelanato saindo de Criciúma",
+    lead: "Coleta e transporte de porcelanatos no polo mais tradicional do país — referência em revestimentos premium, tecnologia e exportação.",
+    intro: [
+      "Criciúma (SC) é um dos polos cerâmicos mais reconhecidos do Brasil, com forte tradição em porcelanatos de alto valor agregado. A ELS Transportes atende coletas na região para entregas em Santa Catarina, outros estados e rotas interestaduais em carga fechada.",
+      "O polo é conhecido pela produção de revestimentos premium e pela vocação exportadora — e exige o mesmo cuidado no manuseio que qualquer carga de pisos e porcelanatos.",
+    ],
+    bullets: ["Coleta no polo de Criciúma (SC)", "Porcelanatos premium e alto valor", "Rotas interestaduais em carga fechada", "Cuidado com material frágil"],
+    faq: [
+      { q: "Vocês fazem frete saindo de Criciúma?", a: "Sim. Atendemos coletas no polo cerâmico de Criciúma para destinos em Santa Catarina e demais estados, conforme rota e volume." },
+      { q: "É possível carga fechada de Criciúma para São Paulo?", a: "Sim. Realizamos cargas fechadas interestaduais. Informe origem, destino e volume para orçamento de rota e prazo." },
+      { q: "Como solicito orçamento com origem em Criciúma?", a: `Envie endereço de coleta, destino e características da carga pelo WhatsApp ${PHONE_DISPLAY}.` },
+    ],
+  },
+  {
+    slug: "polo-mogi-guacu",
+    name: "Polo de Mogi Guaçu",
+    keyword: "frete de porcelanato saindo de Mogi Guaçu",
+    lead: "Coleta e transporte de revestimentos em um dos polos cerâmicos históricos do interior paulista, com fabricantes relevantes do setor.",
+    intro: [
+      "Mogi Guaçu é um polo cerâmico paulista de longa tradição, com presença de fabricantes importantes do setor de revestimentos. A ELS Transportes realiza coleta na região para entregas em Campinas, Grande São Paulo, interior e outras destinações.",
+      "A proximidade com corredores logísticos do interior paulista facilita a distribuição de pisos e porcelanatos para construtoras, lojas e cliente final.",
+    ],
+    bullets: ["Coleta em Mogi Guaçu e região", "Ligação com Campinas e interior paulista", "Entregas para obras e lojas", "Atendimento direto pelo WhatsApp"],
+    faq: [
+      { q: "Vocês coletam em Mogi Guaçu?", a: "Sim. Atendemos coletas no polo cerâmico de Mogi Guaçu para destinos na região de Campinas, Grande São Paulo e interior paulista." },
+      { q: "Mogi Guaçu é atendida junto com Campinas?", a: "Sim. A região se integra à nossa cobertura de Campinas e interior, com rotas planejadas conforme origem e destino." },
+      { q: "Como pedir orçamento com origem em Mogi Guaçu?", a: `Informe coleta, destino e volume pelo WhatsApp ${PHONE_DISPLAY}. Respondemos com proposta objetiva.` },
+    ],
+  },
 ];
 
 function esc(s) {
@@ -127,12 +173,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="${SITE}/img/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
+<meta property="og:image:alt" content="${OG_ALT}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${esc(title)}" />
 <meta name="twitter:description" content="${esc(description)}" />
 <meta name="twitter:image" content="${SITE}/img/og-image.png" />
-<meta name="twitter:image:alt" content="ELS Transportes — transporte de cargas na Grande São Paulo" />
+<meta name="twitter:image:alt" content="${OG_ALT}" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -194,10 +240,10 @@ function shellBottom() {
   <div class="wrap footer__grid">
     <div class="footer__brand">
       <span class="brand__plate"><img src="/img/logo.png" width="134" height="75" alt="ELS Transportes" loading="lazy" /></span>
-      <p>Transporte rodoviário de cargas na Grande São Paulo. Segurança, pontualidade e eficiência em cada entrega.</p>
+      <p>Entrega de pisos e porcelanatos em SP, interior e Brasil. Segurança, pontualidade e cuidado em cada entrega de revestimento.</p>
       <div class="footer__nap">
         <strong>ELS Transportes</strong><br />
-        Grande São Paulo · SP · Brasil<br />
+        São Paulo · SP · Brasil<br />
         Tel./WhatsApp: <a href="https://wa.me/5511964620149">${PHONE_DISPLAY}</a><br />
         E-mail: <a href="mailto:${EMAIL}">${EMAIL}</a><br />
         Seg a Sex · 08h às 18h
@@ -218,12 +264,12 @@ function shellBottom() {
       <h4>Contato</h4>
       <a href="${WPP}" target="_blank" rel="noopener noreferrer">WhatsApp ${PHONE_DISPLAY}</a>
       <a href="mailto:${EMAIL}">${EMAIL}</a>
-      <span>Grande São Paulo · SP</span>
+      <span>São Paulo · SP · Brasil</span>
     </div>
   </div>
   <div class="wrap footer__bottom">
     <span>&copy; <span id="year">2026</span> ELS Transportes. Todos os direitos reservados.</span>
-    <span class="footer__made">Eficiência no transporte.</span>
+    <span class="footer__made">${FOOTER_TAGLINE}</span>
   </div>
 </footer>
 <a class="fab" href="${WPP}" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
@@ -264,7 +310,7 @@ function serviceJson(s, path) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: s.title,
-    serviceType: "Transporte rodoviário de cargas",
+    serviceType: "Entrega de pisos e porcelanatos",
     description: s.lead,
     url: `${SITE}${path}`,
     provider: {
@@ -273,9 +319,9 @@ function serviceJson(s, path) {
       name: "ELS Transportes",
       telephone: PHONE,
       url: SITE,
-      areaServed: { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+      areaServed: { "@type": "Country", name: "Brasil" },
     },
-    areaServed: { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+    areaServed: { "@type": "Country", name: "Brasil" },
   })}</script>`;
 }
 
@@ -283,9 +329,9 @@ function localServiceJson(c, path) {
   return `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Transporte de cargas em ${c.name}`,
-    serviceType: "Transporte rodoviário de cargas",
-    description: `Frete e transporte de cargas em ${c.name}: cargas gerais, dedicadas e fracionadas na Grande São Paulo.`,
+    name: `Entrega de pisos e porcelanatos em ${c.name}`,
+    serviceType: "Entrega de pisos e porcelanatos",
+    description: `Frete de pisos e porcelanatos em ${c.name}: entregas para construtoras, lojas e cliente final.`,
     url: `${SITE}${path}`,
     areaServed: { "@type": "City", name: c.name },
     provider: {
@@ -311,7 +357,7 @@ function renderPage({ active, headMeta, hero, body, jsonLd = "" }) {
   <div class="wrap contato__inner">
     <p class="kicker kicker--light">// Orçamento</p>
     <h2 class="contato__title">Peça seu frete agora</h2>
-    <p class="contato__lead">Atendimento direto pelo WhatsApp. Informe origem, destino e volume da carga.</p>
+    <p class="contato__lead">Atendimento direto pelo WhatsApp. Informe origem, destino e quantidade de caixas ou pallets.</p>
     <div class="contato__actions">
       <a class="btn btn--red btn--lg" href="${WPP}" target="_blank" rel="noopener noreferrer">WhatsApp ${PHONE_DISPLAY}</a>
       <a class="btn btn--ghost btn--lg" href="/contato.html">Outras formas de contato</a>
@@ -353,13 +399,13 @@ for (const s of services) {
 <p class="kicker kicker--light">// Serviço</p>
 <h1 class="h1">${esc(s.h1)}</h1>
 <p class="page-hero__lead">${esc(s.lead)}</p>
-<div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes oferece ${esc(s.keyword)} com atendimento direto, operação enxuta e foco em segurança, pontualidade e eficiência.</div>`;
+<div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes oferece ${esc(s.keyword)} com atendimento direto, operação enxuta e foco em cuidado, pontualidade e segurança no transporte de revestimentos.</div>`;
 
   const body = `<div class="prose">
 ${s.intro.map((p) => `<p>${esc(p)}</p>`).join("\n")}
 <h2>Quando usar ${esc(s.title.toLowerCase())}</h2>
 <ul>${s.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
-<p>Operamos na capital paulista e na região metropolitana. Se sua rota envolve ${esc(s.keyword.split(" na ")[0])}, envie origem, destino e características da carga para receber orçamento.</p>
+<p>Atendemos São Paulo, Grande São Paulo, Litoral, Vale do Paraíba, Campinas, Belo Horizonte e cargas fechadas para todo o Brasil. Informe origem, destino e características da carga para receber orçamento.</p>
 <h2>Perguntas frequentes</h2>
 </div>
 ${faqHtml(s.faq)}
@@ -376,7 +422,7 @@ ${faqHtml(s.faq)}
     renderPage({
       active: "servicos",
       headMeta: {
-        title: `${s.title} — ELS Transportes | Grande São Paulo`,
+        title: `${s.title} — ELS Transportes | Pisos e Porcelanatos`,
         description: `${s.lead} Orçamento rápido pelo WhatsApp ${PHONE_DISPLAY}.`,
         path,
       },
@@ -402,14 +448,14 @@ await writePage(
   renderPage({
     active: "servicos",
     headMeta: {
-      title: "Serviços de Transporte de Cargas — ELS Transportes",
-      description: "Cargas gerais, dedicadas e fracionadas na Grande São Paulo. Conheça os serviços da ELS Transportes e peça orçamento pelo WhatsApp.",
+      title: "Serviços — Entrega de Pisos e Porcelanatos | ELS Transportes",
+      description: "Entrega de pisos e porcelanatos para construtoras, lojas e cliente final. Cargas fechadas para todo o Brasil. Orçamento pelo WhatsApp.",
       path: "/servicos/",
     },
     hero: `
 <p class="kicker kicker--light">// Serviços</p>
-<h1 class="h1">Serviços de transporte de cargas</h1>
-<p class="page-hero__lead">Três modalidades para atender operações de diferentes portes na Grande São Paulo — com atendimento direto e resposta rápida.</p>`,
+<h1 class="h1">Entrega de pisos e porcelanatos</h1>
+<p class="page-hero__lead">Atendemos construtoras, lojas e cliente final — com cuidado no manuseio de revestimentos e atendimento direto pelo WhatsApp.</p>`,
     body: `<div class="link-grid">${servicesHubCards}</div>`,
     jsonLd: breadcrumbJson([
       { name: "Início", path: "/" },
@@ -424,15 +470,15 @@ for (const c of cities) {
   const faq = [
     {
       q: `A ELS Transportes atende ${c.name}?`,
-      a: `Sim. Atendemos ${c.name} e integrações com a capital e demais municípios da Grande São Paulo, conforme origem, destino e tipo de carga.`,
+      a: `Sim. Realizamos entrega de pisos e porcelanatos em ${c.name}, conforme origem, destino e tipo de operação.`,
     },
     {
-      q: "Quais serviços estão disponíveis nesta região?",
-      a: "Cargas gerais e fretes, cargas dedicadas (veículo exclusivo) e cargas fracionadas, de acordo com volume, prazo e perfil da operação.",
+      q: "Quem vocês atendem nesta região?",
+      a: "Construtoras, lojas e boutiques de revestimentos e cliente final. Para rotas interestaduais, oferecemos cargas fechadas para todo o Brasil.",
     },
     {
       q: "Como pedir orçamento para esta área?",
-      a: `Envie origem, destino, peso/dimensões e prazo pelo WhatsApp ${PHONE_DISPLAY}. Respondemos com proposta objetiva.`,
+      a: `Envie origem, destino, quantidade de caixas ou pallets e prazo pelo WhatsApp ${PHONE_DISPLAY}. Respondemos com proposta objetiva.`,
     },
   ];
 
@@ -442,19 +488,19 @@ for (const c of cities) {
   <a href="/atendimento/">Atuação</a><span aria-hidden="true">/</span>
   <span>${esc(c.name)}</span>
 </nav>
-<p class="kicker kicker--light">// Atuação local</p>
-<h1 class="h1">Transportadora em ${esc(c.name)}</h1>
-<p class="page-hero__lead">Frete rodoviário de cargas com foco em ${esc(c.keyword)} — segurança, pontualidade e atendimento direto.</p>
-<div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes atende ${esc(c.name)} com cargas gerais, dedicadas e fracionadas, cobrindo ${esc(c.context)}.</div>`;
+<p class="kicker kicker--light">// Atuação</p>
+<h1 class="h1">Entrega de pisos e porcelanatos em ${esc(c.name)}</h1>
+<p class="page-hero__lead">Frete de revestimentos com foco em ${esc(c.keyword)} — cuidado no transporte e atendimento direto.</p>
+<div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes atende ${esc(c.name)} com entrega de pisos e porcelanatos para construtoras, lojas e cliente final, cobrindo ${esc(c.context)}.</div>`;
 
   const body = `<div class="prose">
-<p>A ELS Transportes realiza coletas e entregas em <strong>${esc(c.name)}</strong>, integrando a operação à rede da Grande São Paulo. Trabalhamos com empresas que precisam de frete confiável, comunicação clara e prazos cumpridos.</p>
-<p>Nesta região, atendemos demandas ligadas a ${esc(c.context)}. Avaliamos cada rota para indicar a modalidade mais adequada: carga dedicada para urgências, fracionada para lotes menores ou carga geral para fluxos recorrentes.</p>
+<p>A ELS Transportes realiza coletas e entregas de <strong>pisos e porcelanatos</strong> em <strong>${esc(c.name)}</strong>. Trabalhamos com construtoras, lojas de revestimentos e cliente final que precisam de frete confiável, comunicação clara e prazos cumpridos.</p>
+<p>Nesta região, atendemos demandas ligadas a ${esc(c.context)}. Avaliamos cada rota para garantir o cuidado necessário com caixas, pallets e material frágil.</p>
 <h2>Serviços disponíveis em ${esc(c.name)}</h2>
 <ul>
-<li><a href="/servicos/cargas-gerais.html">Cargas gerais e fretes</a></li>
-<li><a href="/servicos/cargas-dedicadas.html">Cargas dedicadas</a></li>
-<li><a href="/servicos/cargas-fracionadas.html">Cargas fracionadas</a></li>
+<li><a href="/servicos/construtoras.html">Entrega para construtoras</a></li>
+<li><a href="/servicos/lojas-boutiques.html">Entrega para lojas e boutiques</a></li>
+<li><a href="/servicos/cliente-final.html">Entrega para cliente final</a></li>
 </ul>
 <h2>Perguntas frequentes</h2>
 </div>
@@ -465,8 +511,8 @@ ${faqHtml(faq)}`;
     renderPage({
       active: "atendimento",
       headMeta: {
-        title: `Transportadora em ${c.name} — ELS Transportes`,
-        description: `Frete e transporte de cargas em ${c.name}. Cargas gerais, dedicadas e fracionadas. Orçamento pelo WhatsApp ${PHONE_DISPLAY}.`,
+        title: `Entrega de Pisos e Porcelanatos em ${c.name} — ELS Transportes`,
+        description: `Frete de pisos e porcelanatos em ${c.name}. Construtoras, lojas e cliente final. Orçamento pelo WhatsApp ${PHONE_DISPLAY}.`,
         path,
       },
       hero,
@@ -481,6 +527,54 @@ ${faqHtml(faq)}`;
   );
 }
 
+// Polo cerâmico pages (coleta / origem)
+for (const p of polos) {
+  const path = `/atendimento/${p.slug}.html`;
+
+  const hero = `
+<nav class="breadcrumb" aria-label="Trilha de navegação">
+  <a href="/">Início</a><span aria-hidden="true">/</span>
+  <a href="/atendimento/">Atuação</a><span aria-hidden="true">/</span>
+  <span>${esc(p.name)}</span>
+</nav>
+<p class="kicker kicker--light">// Polo cerâmico</p>
+<h1 class="h1">Frete de pisos e porcelanatos saindo de ${esc(p.name)}</h1>
+<p class="page-hero__lead">${esc(p.lead)}</p>
+<div class="answer-capsule"><strong>Resumo:</strong> A ELS Transportes realiza coleta no ${esc(p.keyword.split(" saindo de ")[1] || p.name)} e transporte de revestimentos com cuidado, atendimento direto e cobertura regional e nacional.</div>`;
+
+  const body = `<div class="prose">
+${p.intro.map((para) => `<p>${esc(para)}</p>`).join("\n")}
+<h2>Operação no ${esc(p.name)}</h2>
+<ul>${p.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+<p>Informe o ponto de coleta, destino, quantidade de caixas ou pallets e prazo para receber orçamento. Atendemos construtoras, lojas e cliente final em todo o trajeto.</p>
+<h2>Perguntas frequentes</h2>
+</div>
+${faqHtml(p.faq)}
+<p style="margin-top:2rem"><a class="btn btn--red" href="${WPP}" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a></p>`;
+
+  await writePage(
+    `atendimento/${p.slug}.html`,
+    renderPage({
+      active: "atendimento",
+      headMeta: {
+        title: `Frete de Pisos e Porcelanatos — ${p.name} | ELS Transportes`,
+        description: `${p.lead} Orçamento pelo WhatsApp ${PHONE_DISPLAY}.`,
+        path,
+      },
+      hero,
+      body,
+      jsonLd:
+        breadcrumbJson([
+          { name: "Início", path: "/" },
+          { name: "Atuação", path: "/atendimento/" },
+          { name: p.name, path },
+        ]) +
+        serviceJson({ title: `Coleta em ${p.name}`, lead: p.lead }, path) +
+        faqJson(p.faq),
+    })
+  );
+}
+
 // Atendimento hub
 const cityCards = cities
   .map(
@@ -491,20 +585,33 @@ const cityCards = cities
   )
   .join("\n");
 
+const poloCards = polos
+  .map(
+    (p) => `<a class="link-card" href="/atendimento/${p.slug}.html">
+  <strong>${esc(p.name)}</strong>
+  <span>${esc(p.keyword)}</span>
+</a>`
+  )
+  .join("\n");
+
 await writePage(
   "atendimento/index.html",
   renderPage({
     active: "atendimento",
     headMeta: {
-      title: "Área de Atuação — Transportadora Grande São Paulo | ELS",
-      description: "Atendemos capital, ABC, Guarulhos, Osasco, Barueri e região metropolitana. Veja as localidades atendidas pela ELS Transportes.",
+      title: "Área de Atuação — Pisos e Porcelanatos | ELS Transportes",
+      description: "Entrega de pisos e porcelanatos em SP, interior e Brasil. Coleta nos polos de Santa Gertrudes, Criciúma e Mogi Guaçu.",
       path: "/atendimento/",
     },
     hero: `
 <p class="kicker kicker--light">// Atuação</p>
-<h1 class="h1">Área de atuação na Grande São Paulo</h1>
-<p class="page-hero__lead">Coletas e entregas na capital paulista e na região metropolitana, com páginas dedicadas por localidade.</p>`,
-    body: `<div class="link-grid">${cityCards}</div>`,
+<h1 class="h1">De SP ao Brasil: onde entregamos</h1>
+<p class="page-hero__lead">Cobertura regional para construtoras, lojas e cliente final — coleta nos principais polos cerâmicos e cargas fechadas interestaduais.</p>`,
+    body: `<div class="prose"><h2>Regiões de entrega</h2></div>
+<div class="link-grid">${cityCards}</div>
+<div class="prose" style="margin-top:3rem"><h2>Polos cerâmicos de coleta</h2>
+<p>Coletamos pisos e porcelanatos nas principais regiões produtoras do Brasil — onde está a fabricação nacional de revestimentos.</p></div>
+<div class="link-grid">${poloCards}</div>`,
     jsonLd: breadcrumbJson([
       { name: "Início", path: "/" },
       { name: "Atuação", path: "/atendimento/" },
@@ -519,32 +626,34 @@ const institutional = [
   {
     file: "sobre.html",
     active: "sobre",
-    title: "Sobre a ELS Transportes — Transportadora na Grande São Paulo",
-    description: "Conheça a ELS Transportes: transportadora rodoviária enxuta, focada em eficiência, segurança e qualidade no transporte de cargas na Grande São Paulo.",
+    title: "Sobre a ELS Transportes — Entrega de Pisos e Porcelanatos",
+    description: "Conheça a ELS Transportes: especializada em entrega de pisos e porcelanatos para construtoras, lojas e cliente final em SP, interior e Brasil.",
     path: "/sobre.html",
     h1: "Sobre a ELS Transportes",
-    lead: "Transportadora rodoviária nova, com um objetivo claro: eficiência no transporte de cargas na Grande São Paulo.",
+    lead: "Transportadora especializada em pisos e porcelanatos, com atendimento direto e foco em cuidado, pontualidade e segurança.",
     body: `<div class="prose">
-<p>A <strong>ELS Transportes</strong> nasceu para entregar o essencial no transporte de cargas: <strong>segurança</strong>, <strong>qualidade</strong> e <strong>pontualidade</strong>. Somos uma operação enxuta, com atendimento direto e foco em resolver a logística do cliente sem burocracia.</p>
-<p>Atendemos a Grande São Paulo com três modalidades principais: <a href="/servicos/cargas-gerais.html">cargas gerais e fretes</a>, <a href="/servicos/cargas-dedicadas.html">cargas dedicadas</a> e <a href="/servicos/cargas-fracionadas.html">cargas fracionadas</a>.</p>
+<p>A <strong>ELS Transportes</strong> nasceu para resolver a logística de <strong>pisos e porcelanatos</strong> com o cuidado que revestimentos exigem. Somos uma operação enxuta, com atendimento direto e foco em entregar no prazo — sem burocracia.</p>
+<p>Atendemos <a href="/servicos/construtoras.html">construtoras</a>, <a href="/servicos/lojas-boutiques.html">lojas e boutiques</a> e <a href="/servicos/cliente-final.html">cliente final</a>, com cobertura em São Paulo, Grande São Paulo, Litoral, Vale do Paraíba, Campinas, Belo Horizonte e <a href="/atendimento/todo-brasil.html">cargas fechadas para todo o Brasil</a>.</p>
+<h2>Polos cerâmicos de coleta</h2>
+<p>Coletamos revestimentos nos principais polos produtores do país: <a href="/atendimento/polo-santa-gertrudes.html">Santa Gertrudes (SP)</a> — maior polo cerâmico das Américas —, <a href="/atendimento/polo-criciuma.html">Criciúma (SC)</a> — referência em porcelanato premium — e <a href="/atendimento/polo-mogi-guacu.html">Mogi Guaçu (SP)</a>.</p>
 <h2>Nossos pilares</h2>
 <ul>
-<li><strong>Segurança</strong> — carga cuidada do início ao fim.</li>
-<li><strong>Qualidade</strong> — padrão de serviço perceptível em cada entrega.</li>
-<li><strong>Eficiência</strong> — rotas inteligentes e prazos cumpridos.</li>
+<li><strong>Cuidado</strong> — material frágil manuseado com atenção do início ao fim.</li>
+<li><strong>Pontualidade</strong> — prazo combinado é prazo cumprido.</li>
+<li><strong>Atendimento direto</strong> — você fala com quem resolve, pelo WhatsApp.</li>
 </ul>
 <h2>Área de atuação</h2>
-<p>Operamos na capital paulista e na região metropolitana. Veja a lista completa de localidades em <a href="/atendimento/">Área de atuação</a>.</p>
+<p>Operamos em macro-regiões de São Paulo, interior, Campinas, Minas Gerais e rotas interestaduais. Veja a lista completa em <a href="/atendimento/">Área de atuação</a>.</p>
 </div>`,
   },
   {
     file: "contato.html",
     active: "contato",
     title: "Contato — ELS Transportes | Orçamento de Frete",
-    description: "Fale com a ELS Transportes pelo WhatsApp (11) 96462-0149 ou e-mail. Atendimento Seg a Sex, 08h às 18h. Grande São Paulo.",
+    description: "Fale com a ELS Transportes pelo WhatsApp (11) 96462-0149 ou e-mail. Atendimento Seg a Sex, 08h às 18h. Pisos e porcelanatos em SP, interior e Brasil.",
     path: "/contato.html",
     h1: "Contato",
-    lead: "Orçamento de frete com atendimento direto. Informe origem, destino e volume da carga.",
+    lead: "Orçamento de frete de pisos e porcelanatos com atendimento direto. Informe origem, destino e quantidade de caixas ou pallets.",
     body: `<div class="prose">
 <h2>WhatsApp</h2>
 <p>Canal principal para orçamentos e dúvidas operacionais: <a href="${WPP}" target="_blank" rel="noopener noreferrer">${PHONE_DISPLAY}</a>.</p>
@@ -553,7 +662,7 @@ const institutional = [
 <h2>Horário de atendimento</h2>
 <p>Segunda a sexta-feira, das 08h às 18h.</p>
 <h2>Área atendida</h2>
-<p>Grande São Paulo — capital e região metropolitana. Consulte <a href="/atendimento/">localidades atendidas</a>.</p>
+<p>São Paulo Capital, Grande São Paulo, Litoral Paulista, Vale do Paraíba (até Aparecida do Norte), Campinas e região, Belo Horizonte e Grande BH, além de cargas fechadas para todo o Brasil. Coletamos nos polos cerâmicos de Santa Gertrudes, Criciúma e Mogi Guaçu. Consulte <a href="/atendimento/">regiões e polos atendidos</a>.</p>
 <h2>Privacidade</h2>
 <p>Dados enviados por WhatsApp ou e-mail são usados apenas para responder sua solicitação. Leia a <a href="/politica-de-privacidade.html">Política de Privacidade</a>.</p>
 </div>`,
@@ -567,10 +676,10 @@ const institutional = [
     h1: "Política de Privacidade",
     lead: "Transparência sobre coleta e uso de dados pessoais.",
     body: `<div class="prose">
-<p><strong>Última atualização:</strong> 14 de junho de 2026.</p>
+<p><strong>Última atualização:</strong> 16 de junho de 2026.</p>
 <p>A ELS Transportes respeita a privacidade dos visitantes e clientes. Esta política descreve quais dados podemos receber e como os utilizamos.</p>
 <h2>1. Quem somos</h2>
-<p>Controladora: <strong>ELS Transportes</strong>, transportadora rodoviária atuante na Grande São Paulo. Contato: <a href="mailto:${EMAIL}">${EMAIL}</a> · WhatsApp ${PHONE_DISPLAY}.</p>
+<p>Controladora: <strong>ELS Transportes</strong>, transportadora especializada em entrega de pisos e porcelanatos, atuante em São Paulo, interior paulista, Campinas, Belo Horizonte e cargas fechadas para todo o Brasil. Contato: <a href="mailto:${EMAIL}">${EMAIL}</a> · WhatsApp ${PHONE_DISPLAY}.</p>
 <h2>2. Dados que podemos receber</h2>
 <ul>
 <li>Dados enviados voluntariamente por WhatsApp ou e-mail (nome, telefone, e-mail, informações sobre carga e rotas).</li>
@@ -599,10 +708,10 @@ const institutional = [
     h1: "Termos de Uso",
     lead: "Condições de uso deste site institucional.",
     body: `<div class="prose">
-<p><strong>Última atualização:</strong> 14 de junho de 2026.</p>
+<p><strong>Última atualização:</strong> 16 de junho de 2026.</p>
 <p>Ao acessar <strong>elstransportes.com.br</strong>, você concorda com estes termos.</p>
 <h2>1. Objeto</h2>
-<p>Este site apresenta informações institucionais sobre a ELS Transportes e canais de contato para solicitação de orçamentos de transporte de cargas.</p>
+<p>Este site apresenta informações institucionais sobre a ELS Transportes e canais de contato para solicitação de orçamentos de transporte de pisos e porcelanatos.</p>
 <h2>2. Orçamentos e contratação</h2>
 <p>Informações do site não constituem proposta comercial vinculante. Condições finais de frete são acordadas diretamente no contato com a equipe.</p>
 <h2>3. Propriedade intelectual</h2>
@@ -649,6 +758,7 @@ const urls = [
   ...services.map((s) => `/servicos/${s.slug}.html`),
   "/atendimento/",
   ...cities.map((c) => `/atendimento/${c.slug}.html`),
+  ...polos.map((p) => `/atendimento/${p.slug}.html`),
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -657,7 +767,7 @@ ${urls
   .map(
     (path) => `  <url>
     <loc>${SITE}${path === "/" ? "/" : path}</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>${path === "/" ? "weekly" : "monthly"}</changefreq>
     <priority>${path === "/" ? "1.0" : path.includes("servicos") || path.includes("atendimento") ? "0.8" : "0.6"}</priority>
   </url>`
